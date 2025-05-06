@@ -1,0 +1,73 @@
+.memory{
+    display: grid;
+    grid-column: 4fr;
+    grid-row: 4fr;
+    padding: 4rem;
+    text-align: center;
+    row-gap: 5rem;
+}
+
+.carte1{
+    grid-column: 1/1;
+    grid-row: 1;
+}
+.carte2{
+    grid-column: 2/3;
+    grid-row: 1;
+}
+.carte3{
+    grid-column: 3/4;
+    grid-row: 1;
+}
+.carte4{
+    grid-column: 4/4;
+    grid-row: 1;
+}
+.carte5{
+    grid-column: 1/1;
+    grid-row: 2;
+}
+.carte6{
+    grid-column: 2/3;
+    grid-row: 2;
+}
+.carte7{
+    grid-column: 3/4;
+    grid-row: 2;
+}
+.carte8{
+    grid-column: 4/4;
+    grid-row: 2;
+}
+.carte9{
+    grid-column: 1/1;
+    grid-row: 3;
+}
+.carte10{
+    grid-column: 2/3;
+    grid-row: 3;
+}
+.carte11{
+    grid-column: 3/4;
+    grid-row: 3;
+}
+.carte12{
+    grid-column: 4/4;
+    grid-row: 3;
+}
+.carte13{
+    grid-column: 1/1;
+    grid-row: 4;
+}
+.carte14{
+    grid-column: 2/3;
+    grid-row: 4;
+}
+.carte15{
+    grid-column: 3/4;
+    grid-row: 4;
+}
+.carte16{
+    grid-column: 4/4;
+    grid-row: 4;
+}

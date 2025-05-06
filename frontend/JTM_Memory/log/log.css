@@ -1,0 +1,28 @@
+*{
+    text-align: center;
+}
+
+body {
+    background-color: #7B8CDE;
+}
+
+.container {
+    background-color: white;
+    border-radius: 1.5rem;
+    width: 50%;
+    margin: 5rem auto;
+    padding: 2rem;
+}
+
+.champ{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: auto;
+    padding: 1rem;
+}
+
+.champ input{
+    margin: 0.5rem;
+    padding: 0.5rem;
+}
