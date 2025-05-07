@@ -1,6 +1,6 @@
 #memory{
     display: grid;
-    grid-column: 4fr;
+    grid-template-columns: repeat(4, 1fr);
     grid-row: 4fr;
     padding: 4rem;
     text-align: center;
@@ -21,4 +21,12 @@
 }
 .carte.trouvee{
     background-color: greenyellow;
+}
+h1{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.none{
+    display: none;
 }
