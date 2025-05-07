@@ -1,3 +1,10 @@
+const escapeHTML = str =>
+  str.replace(/&/g, "&amp;")
+     .replace(/</g, "&lt;")
+     .replace(/>/g, "&gt;")
+     .replace(/"/g, "&quot;")
+     .replace(/'/g, "&#039;");
+
 async function chargerImages() {
     try {
       const res = await fetch('https://jtm-memory-v2.onrender.com/images');
