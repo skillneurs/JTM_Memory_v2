@@ -17,7 +17,10 @@
                 <input type="text" name="identifiant" placeholder="Identifiant" autocomplete="off">
                 <input type="password" name="mdp" placeholder="Mot de Passe" autocomplete="off">
                 <input type="submit" name="connecter" value="Se connecter">
-                <input type="submit" name="inscrire" value="S'inscrire" href="../log/register.html">
+                <input type="submit" name="inscrire" value="S'inscrire">
+                <?php
+                echo "Bienvenue sur la page de connexion !<br>";
+                ?>
             </div>
         </form>
     </div>
