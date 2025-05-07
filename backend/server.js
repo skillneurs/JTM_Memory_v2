@@ -4,105 +4,76 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const multer = require('multer');
 const path = require('path');
-const fs = require('fs');
-const Image = require('./models/Image'); // Modèle Mongoose
+const Image = require('./models/Image');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Connexion à MongoDB Atlas
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
-  .then(() => console.log('✅ Connexion MongoDB réussie'))
-  .catch((err) => console.error('❌ Erreur MongoDB :', err));
+.then(() => console.log('✅ Connecté à MongoDB'))
+.catch(err => console.error('❌ MongoDB error :', err));
 
-// Création du dossier uploads s'il n'existe pas (nécessaire sur Render)
-const uploadsDir = path.join(__dirname, 'uploads');
-if (!fs.existsSync(uploadsDir)) {
-  fs.mkdirSync(uploadsDir);
-  console.log('📁 Dossier uploads créé');
-}
-
-// Middleware
 app.use(cors());
 app.use(express.json());
-app.use('/uploads', express.static('uploads')); // Accès public aux fichiers
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-// Configuration de Multer (stockage + filtrage type MIME)
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, 'uploads/');
+    cb(null, path.join(__dirname, 'uploads'));
   },
   filename: (req, file, cb) => {
-    cb(null, Date.now() + path.extname(file.originalname)); // Nom unique
+    cb(null, Date.now() + path.extname(file.originalname));
   }
 });
 
-const fileFilter = (req, file, cb) => {
-  const allowedTypes = /jpeg|jpg|png/;
-  const extname = allowedTypes.test(path.extname(file.originalname).toLowerCase());
-  const mimetype = allowedTypes.test(file.mimetype);
-  if (extname && mimetype) {
-    cb(null, true);
-  } else {
-    cb(new Error('Seuls les fichiers .jpg, .jpeg et .png sont autorisés.'));
-  }
-};
+const upload = multer({ storage });
 
-const upload = multer({ storage, fileFilter });
-
-// Route POST /upload — Envoi d'une image
 app.post('/upload', upload.single('image'), async (req, res) => {
   try {
     const { title, description } = req.body;
-
-    if (!title || !description || !req.file) {
-      console.error('Champs manquants :', { title, description, file: req.file });
-      return res.status(400).json({ error: 'Titre, description et image sont requis.' });
+    if (!req.file || !title || !description) {
+      return res.status(400).json({ error: 'Tous les champs sont requis' });
     }
 
     const image = new Image({
       title,
       description,
-      filename: req.file.filename,
+      filename: req.file.filename
     });
 
     await image.save();
-    res.status(200).json({ message: '✅ Image enregistrée avec succès' });
-
-  } catch (error) {
-    console.error('Erreur POST /upload :', error);
-    res.status(500).json({ error: '❌ Erreur lors de l\'enregistrement de l\'image' });
+    res.status(200).json({ message: '✅ Image enregistrée' });
+  } catch (err) {
+    console.error('Upload error :', err);
+    res.status(500).json({ error: 'Erreur serveur' });
   }
 });
 
-// Route GET /images — Liste toutes les images
 app.get('/images', async (req, res) => {
   try {
     const images = await Image.find().sort({ createdAt: -1 });
-    res.status(200).json(images);
-  } catch (error) {
-    console.error('Erreur GET /images :', error);
-    res.status(500).json({ error: '❌ Erreur lors de la récupération des images' });
+    res.json(images);
+  } catch (err) {
+    console.error('Image fetch error:', err);
+    res.status(500).json({ error: 'Erreur serveur' });
   }
 });
 
-// Route GET /image/:id — Récupère une image spécifique
 app.get('/image/:id', async (req, res) => {
   try {
     const image = await Image.findById(req.params.id);
-    if (!image) {
-      return res.status(404).json({ error: 'Image non trouvée' });
-    }
-    res.sendFile(path.resolve(__dirname, 'uploads', image.filename));
-  } catch (error) {
-    console.error('Erreur GET /image/:id :', error);
-    res.status(500).json({ error: '❌ Erreur lors de la récupération de l\'image' });
+    if (!image) return res.status(404).json({ error: 'Image non trouvée' });
+
+    res.sendFile(path.join(__dirname, 'uploads', image.filename));
+  } catch (err) {
+    console.error('Image get error:', err);
+    res.status(500).json({ error: 'Erreur serveur' });
   }
 });
 
 app.listen(PORT, () => {
-  console.log(`🚀 API opérationnelle sur http://localhost:${PORT}`);
+  console.log(`🚀 Serveur en écoute sur http://localhost:${PORT}`);
 });
