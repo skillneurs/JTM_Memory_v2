@@ -1,10 +1,10 @@
 require('dotenv').config();
-
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const multer = require('multer');
 const path = require('path');
+const fs = require('fs');
 const Image = require('./models/Image'); // Modèle Mongoose
 
 const app = express();
@@ -17,6 +17,13 @@ mongoose.connect(process.env.MONGODB_URI, {
 })
   .then(() => console.log('✅ Connexion MongoDB réussie'))
   .catch((err) => console.error('❌ Erreur MongoDB :', err));
+
+// Création du dossier uploads s'il n'existe pas (nécessaire sur Render)
+const uploadsDir = path.join(__dirname, 'uploads');
+if (!fs.existsSync(uploadsDir)) {
+  fs.mkdirSync(uploadsDir);
+  console.log('📁 Dossier uploads créé');
+}
 
 // Middleware
 app.use(cors());
@@ -52,6 +59,7 @@ app.post('/upload', upload.single('image'), async (req, res) => {
     const { title, description } = req.body;
 
     if (!title || !description || !req.file) {
+      console.error('Champs manquants :', { title, description, file: req.file });
       return res.status(400).json({ error: 'Titre, description et image sont requis.' });
     }
 
@@ -73,7 +81,7 @@ app.post('/upload', upload.single('image'), async (req, res) => {
 // Route GET /images — Liste toutes les images
 app.get('/images', async (req, res) => {
   try {
-    const images = await Image.find().sort({ createdAt: -1 }); // Tri décroissant
+    const images = await Image.find().sort({ createdAt: -1 });
     res.status(200).json(images);
   } catch (error) {
     console.error('Erreur GET /images :', error);
@@ -81,7 +89,7 @@ app.get('/images', async (req, res) => {
   }
 });
 
-// Route GET /image/:id — Récupère une image spécifique par ID
+// Route GET /image/:id — Récupère une image spécifique
 app.get('/image/:id', async (req, res) => {
   try {
     const image = await Image.findById(req.params.id);
@@ -95,12 +103,6 @@ app.get('/image/:id', async (req, res) => {
   }
 });
 
-// ✅ Nouvelle route pour Render
-app.get('/', (req, res) => {
-  res.send('✅ API en ligne et opérationnelle');
-});
-
-// Démarrage du serveur
 app.listen(PORT, () => {
   console.log(`🚀 API opérationnelle sur http://localhost:${PORT}`);
 });
