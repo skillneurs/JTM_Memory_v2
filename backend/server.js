@@ -18,7 +18,6 @@ mongoose.connect(process.env.MONGODB_URI, {
   .then(() => console.log('✅ Connexion MongoDB réussie'))
   .catch((err) => console.error('❌ Erreur MongoDB :', err));
 
-
 // Middleware
 app.use(cors());
 app.use(express.json());
@@ -52,7 +51,6 @@ app.post('/upload', upload.single('image'), async (req, res) => {
   try {
     const { title, description } = req.body;
 
-    // Vérification des champs
     if (!title || !description || !req.file) {
       return res.status(400).json({ error: 'Titre, description et image sont requis.' });
     }
@@ -95,6 +93,11 @@ app.get('/image/:id', async (req, res) => {
     console.error('Erreur GET /image/:id :', error);
     res.status(500).json({ error: '❌ Erreur lors de la récupération de l\'image' });
   }
+});
+
+// ✅ Nouvelle route pour Render
+app.get('/', (req, res) => {
+  res.send('✅ API en ligne et opérationnelle');
 });
 
 // Démarrage du serveur
