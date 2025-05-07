@@ -1,79 +1,69 @@
-require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
-const cors = require('cors');
 const multer = require('multer');
 const path = require('path');
-const Image = require('./models/Image');
+const cors = require('cors');
+require('dotenv').config();
 
 const app = express();
-const PORT = process.env.PORT || 5000;
-
-mongoose.connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-.then(() => console.log('✅ Connecté à MongoDB'))
-.catch(err => console.error('❌ MongoDB error :', err));
-
 app.use(cors());
 app.use(express.json());
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
+// Connexion MongoDB
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
+
+// Schéma Mongo
+const imageSchema = new mongoose.Schema({
+  title: String,
+  description: String,
+  filename: String,
+  createdAt: {
+    type: Date,
+    default: Date.now
+  }
+});
+
+const Image = mongoose.model('Image', imageSchema);
+
+// Upload
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, path.join(__dirname, 'uploads'));
+    cb(null, 'uploads')
   },
   filename: (req, file, cb) => {
-    cb(null, Date.now() + path.extname(file.originalname));
+    cb(null, Date.now() + path.extname(file.originalname))
   }
 });
 
 const upload = multer({ storage });
 
+// POST /upload
 app.post('/upload', upload.single('image'), async (req, res) => {
-  try {
-    const { title, description } = req.body;
-    if (!req.file || !title || !description) {
-      return res.status(400).json({ error: 'Tous les champs sont requis' });
-    }
+  const { title, description } = req.body;
+  const newImage = new Image({
+    title,
+    description,
+    filename: req.file.filename
+  });
 
-    const image = new Image({
-      title,
-      description,
-      filename: req.file.filename
-    });
-
-    await image.save();
-    res.status(200).json({ message: '✅ Image enregistrée' });
-  } catch (err) {
-    console.error('Upload error :', err);
-    res.status(500).json({ error: 'Erreur serveur' });
-  }
+  await newImage.save();
+  res.status(201).json({ message: 'Image enregistrée' });
 });
 
+// ✅ GET /images — Cette route doit être ici
 app.get('/images', async (req, res) => {
   try {
     const images = await Image.find().sort({ createdAt: -1 });
-    res.json(images);
+    res.status(200).json(images);
   } catch (err) {
-    console.error('Image fetch error:', err);
     res.status(500).json({ error: 'Erreur serveur' });
   }
 });
 
-app.get('/image/:id', async (req, res) => {
-  try {
-    const image = await Image.findById(req.params.id);
-    if (!image) return res.status(404).json({ error: 'Image non trouvée' });
-
-    res.sendFile(path.join(__dirname, 'uploads', image.filename));
-  } catch (err) {
-    console.error('Image get error:', err);
-    res.status(500).json({ error: 'Erreur serveur' });
-  }
-});
-
-app.listen(PORT, () => {
-  console.log(`🚀 Serveur en écoute sur http://localhost:${PORT}`);
-});
+// Lancement du serveur
+const PORT = 5000;
+app.listen(PORT, () => console.log(`🚀 API opérationnelle sur http://localhost:${PORT}`));
