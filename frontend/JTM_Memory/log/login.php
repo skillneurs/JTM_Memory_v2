@@ -17,12 +17,45 @@
                 <input type="text" name="identifiant" placeholder="Identifiant" autocomplete="off">
                 <input type="password" name="mdp" placeholder="Mot de Passe" autocomplete="off">
                 <input type="submit" name="connecter" value="Se connecter">
-                <input type="submit" name="inscrire" value="S'inscrire">
                 <?php
                 echo "Bienvenue sur la page de connexion !<br>";
                 ?>
             </div>
         </form>
+
+        <?php
+        if (isset($_POST['connecter'])) {
+            extract($_POST); // Récupérer les valeurs du formulaire
+        
+            if (!empty($mdp) && !empty($identifiant)) {
+                include('../log/database.php'); // Inclure le fichier de connexion à la base de données
+                global $db;
+
+                $c = $db->prepare("SELECT * FROM users WHERE identifiant = :identifiant");
+                $c->execute([
+                    'identifiant' => $identifiant
+                ]);
+
+                $result = $c->fetch();
+
+                if ($result) {
+                    if (password_verify($mdp, $result['mdp'])) {
+                        echo "Connexion réussie !";
+                        // Rediriger vers une autre page ou effectuer d'autres actions
+                        header("Location: ../home.html");
+                    } else {
+                        echo "Identifiant ou mot de passe incorrect.";
+                    }
+                } else {
+                    echo "Identifiant ou mot de passe incorrect.";
+                }
+            } else {
+                echo "Veuillez remplir tous les champs.";
+            }
+        }
+
+        ?>
+
     </div>
 </body>
 
