@@ -1,0 +1,7 @@
+@font-face {
+    font-family: WalterTurncoat;
+    src: url(../font/WalterTurncoat-Regular.ttf);
+}
+*{
+    font-family: WalterTurncoat;
+}
