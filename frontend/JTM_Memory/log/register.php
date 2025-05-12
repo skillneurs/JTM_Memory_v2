@@ -1,6 +1,6 @@
 <?php
 session_start(); // Démarrer la session
-
+    
 
 ?>
 
@@ -12,6 +12,7 @@ session_start(); // Démarrer la session
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscription</title>
     <link rel="stylesheet" href="../log/log.css">
+    <link rel="stylesheet" href="../../css/font.css">
 </head>
 
 <body>
@@ -28,6 +29,8 @@ session_start(); // Démarrer la session
                 <input type="password" name="cmdp" placeholder="Confirmer votre mot de passe" id="cmdp"
                     autocomplete="off" required>
                 <input type="submit" name="inscrire" value="S'inscrire" id="inscrire">
+                <a href="../home.html" id="btn-redirection-accueil">Continuer sans compte</a>
+                <a href="../log/login.php" id="btn-redirection-connexion">Retour à la connexion</a>
             </div>
         </form>
 

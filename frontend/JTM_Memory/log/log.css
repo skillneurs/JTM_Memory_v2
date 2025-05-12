@@ -25,4 +25,22 @@ body {
 .champ input{
     margin: 0.5rem;
     padding: 0.5rem;
+    border-radius: 2rem;
+    border: 1px solid #7B8CDE;
+}
+
+/*btn*/
+
+#inscrire, #connecter{
+    background-color: #7B8CDE;
+    color: white;
+    border-radius: 2rem;
+    padding: 0.5rem;
+    border: none;
+    cursor: pointer;
+}
+
+
+#inscrire:hover, #connecter:hover{
+    background-color: #5A6FAE;
 }
