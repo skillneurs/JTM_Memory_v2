@@ -10,7 +10,7 @@
 .carte{
     display: block;
     background-color: black;
-    z-index: 2;
+    z-index: 1;
     cursor: pointer;
     border: 2px solid gray;
 }
@@ -38,4 +38,7 @@ h1{
 }
 .none{
     display: none;
+}
+.img{
+    z-index: 7;
 }

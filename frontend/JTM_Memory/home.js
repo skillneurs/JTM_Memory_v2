@@ -25,12 +25,16 @@ let verrouillage = false;
 let cartestrouvee = [];
 
 cartes.forEach(carte => {
-  carte.addEventListener("click", () => {
+  carte.addEventListener("click", () => { 
     if (verrouillage || carte.classList.contains("trouvee") || carte.classList.contains("visible")) {
       return;
     }
 
     carte.classList.add("visible");
+    const img = carte.querySelector("img")
+    if(img){
+      img.classList.remove("none");
+    }
     cartesRetournees.push(carte);
 
     if (cartesRetournees.length === 2) {
@@ -57,6 +61,12 @@ cartes.forEach(carte => {
         setTimeout(() => {
           carte1.classList.remove("visible");
           carte2.classList.remove("visible");
+
+          const img1 = carte1.querySelector("img");
+          const img2 = carte2.querySelector("img");
+          if (img1) img1.classList.add("none");
+          if (img2) img2.classList.add("none");
+
           cartesRetournees = [];
           verrouillage = false;
         }, 1000);
@@ -68,3 +78,5 @@ cartes.forEach(carte => {
 btnrejouer.addEventListener("click", () => {
   window.location.reload()
 })
+
+//img.classList.remove("none");
