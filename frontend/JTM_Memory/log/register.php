@@ -28,9 +28,9 @@ session_start(); // Démarrer la session
                     autocomplete="off" required>
                 <input type="password" name="cmdp" placeholder="Confirmer votre mot de passe" id="cmdp"
                     autocomplete="off" required>
-                <input type="submit" name="inscrire" value="S'inscrire" id="inscrire">
-                <a href="../home.html" id="btn-redirection-accueil">Continuer sans compte</a>
+                <input type="submit" name="inscrire" value="S'inscrire" id="inscrire">   
                 <a href="../log/login.php" id="btn-redirection-connexion">Retour à la connexion</a>
+                <a href="../home.html" id="btn-redirection-accueil">Continuer sans compte</a>
             </div>
         </form>
 
