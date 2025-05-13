@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connexion</title>
     <link rel="stylesheet" href="../log/log.css">
+    <link rel="stylesheet" href="../../css/font.css">
 
 </head>
 
@@ -16,10 +17,8 @@
             <div class="champ">
                 <input type="text" name="identifiant" placeholder="Identifiant" autocomplete="off">
                 <input type="password" name="mdp" placeholder="Mot de Passe" autocomplete="off">
-                <input type="submit" name="connecter" value="Se connecter">
-                <?php
-                echo "Bienvenue sur la page de connexion !<br>";
-                ?>
+                <input type="submit" name="connecter" value="Se connecter" id="connecter">
+                <a href="../log/register.php">Vous navez pas de compte ? Créez en un!</a>
             </div>
         </form>
 
@@ -41,7 +40,7 @@
                 if ($result) {
                     if (password_verify($mdp, $result['mdp'])) {
                         echo "Connexion réussie !";
-                        // Rediriger vers une autre page ou effectuer d'autres actions
+                        // Rediriger vers une autre page 
                         header("Location: ../home.html");
                     } else {
                         echo "Identifiant ou mot de passe incorrect.";
