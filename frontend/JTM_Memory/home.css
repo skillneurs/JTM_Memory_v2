@@ -29,6 +29,10 @@ header{
     border: 3px solid cyan;
     box-shadow: 0px 0px 15px cyan inset;
 }
+ .carte:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+     }
 
 .carte.visible{
     background-color: #3573a38f;
@@ -79,11 +83,6 @@ box-shadow:
 0 0 160px #239BFF,
 0 0 320px #239BFF;
 color: #255784;
-transition-delay: .3s;
-
-
-
-
 }
 #compte:active {
 	position:relative;
