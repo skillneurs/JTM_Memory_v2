@@ -1,5 +1,8 @@
 body{
     background-color: blanchedalmond;
+    background-image: url(/frontend/img/panoramaSpace.png);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 #memory{
     display: grid;
