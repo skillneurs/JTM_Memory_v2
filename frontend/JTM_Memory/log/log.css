@@ -2,12 +2,19 @@
     text-align: center;
 }
 
+h1{
+    color: #72c5e1;
+
+}
+
 body {
-    background-color: #7B8CDE;
+    background-image: url(/frontend/img/panoramaSpace.png);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .container {
-    background-color: white;
+    background-color: rgb(39, 84, 198);
     border-radius: 1.5rem;
     width: 50%;
     margin: 5rem auto;
@@ -19,7 +26,7 @@ body {
     flex-direction: column;
     width: 50%;
     margin: auto;
-    padding: 1rem;
+    gap: 0.4rem;
 }
 
 .champ input{
@@ -29,18 +36,41 @@ body {
     border: 1px solid #7B8CDE;
 }
 
+.champ a{
+    text-decoration: none;
+    color: #72c5e1;
+}
+
+.champ a:hover{
+    text-decoration: underline;
+    text-decoration-color: #72c5e1;
+    color: #72c5e1;
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+   
+    
+}
+
 /*btn*/
 
 #inscrire, #connecter{
-    background-color: #7B8CDE;
+    background-color: #72c5e1;;
     color: white;
     border-radius: 2rem;
     padding: 0.5rem;
     border: none;
     cursor: pointer;
+    font-size: 1.6rem;
 }
 
 
 #inscrire:hover, #connecter:hover{
-    background-color: #5A6FAE;
+    background: cyan;
+box-shadow: 
+0 0 20px #239BFF,
+0 0 80px #239BFF,
+0 0 160px #239BFF,
+0 0 320px #239BFF;
+color: #255784;
 }
