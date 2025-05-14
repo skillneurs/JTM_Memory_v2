@@ -1,26 +1,38 @@
+body{
+    background-color: blanchedalmond;
+}
 #memory{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-row: 4fr;
     padding: 4rem;
     text-align: center;
-    row-gap: 5rem;
+    justify-items: center;
+    gap: 2rem;
+    max-width: 80%;
+    margin: auto;
 }
 
 .carte{
-    display: block;
-    background-color: black;
+    display: flex;
+    background-color: #f8a8408f;
     z-index: 1;
     cursor: pointer;
-    border: 2px solid gray;
+    border: 3px solid #fb9e25;
+    justify-content: center;
+    width: 8rem;
+    height: 6rem;
+    align-items: center;
+    border-radius: 4px;
+    color: #f8a8408f;
 }
 
 .carte.visible{
-    background-color: aliceblue;
-    border: 2px solid gray;
+    background-color: #fdd29a8f;
+    border: 3px solid red;
 }
 .carte.trouvee{
-    background-color: greenyellow;
+    background-color: #caf685;
+    border: 3px solid greenyellow;
 }
 h1{
    display: flex;
@@ -41,4 +53,30 @@ h1{
 }
 .img{
     z-index: 7;
+    object-fit: cover;
+    background-repeat: no-repeat;
+    max-width: 75%;
+}
+#compte {
+	box-shadow: 5px 6px 5px 2px #fce2c1;
+	background:linear-gradient(to bottom, #ffc477 5%, #fb9e25 100%);
+	background-color:#ffc477;
+	border-radius:10px;
+	border:1px solid #eeb44f;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:16px;
+	padding:16px 31px;
+	text-decoration:none;
+	text-shadow:0px 1px 20px #cc9f52;
+}
+#compte:hover {
+	background:linear-gradient(to bottom, #fb9e25 5%, #ffc477 100%);
+	background-color:#fb9e25;
+}
+#compte:active {
+	position:relative;
+	top:1px;
 }
