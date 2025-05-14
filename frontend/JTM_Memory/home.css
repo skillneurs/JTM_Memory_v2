@@ -38,6 +38,7 @@ h1{
    display: flex;
    align-items: center;
    justify-content: center;
+   color: #f389009e;
 }
 .style{
     display: flex;
@@ -73,8 +74,9 @@ h1{
 	text-shadow:0px 1px 20px #cc9f52;
 }
 #compte:hover {
-	background:linear-gradient(to bottom, #fb9e25 5%, #ffc477 100%);
-	background-color:#fb9e25;
+	background:linear-gradient(to bottom, #caf685 5%, greenyellow 100%);
+	background-color:#caf685;
+    border: 1px solid #caf685;
 }
 #compte:active {
 	position:relative;
