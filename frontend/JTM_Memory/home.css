@@ -20,18 +20,18 @@ header{
 
 .carte{
     display: block;
-    background-color: #f8a8408f;
+    background-color: #133aeb8f;
     z-index: 1;
     cursor: pointer;
     padding: 4rem;
     border-radius: 4px;
-    color: #f8a8408f;
+    color: #ffffff8f;
     border: 3px solid cyan;
     box-shadow: 0px 0px 15px cyan inset;
 }
 
 .carte.visible{
-    background-color: #fdd29a8f;
+    background-color: #3573a38f;
     border: 3px solid red;
 }
 .carte.trouvee{
@@ -42,7 +42,7 @@ h1{
    display: flex;
    align-items: center;
    justify-content: center;
-   color: #f389009e;
+   color: #72c5e1;
 }
 .style{
     display: flex;
