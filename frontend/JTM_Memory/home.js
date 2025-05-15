@@ -75,6 +75,8 @@ cartes.forEach(carte => {
           if (img1) img1.classList.add("none");
           if (img2) img2.classList.add("none");
 
+          score -=20;
+          document.getElementById("score").textContent = `Score : ${score}`;
           combo = 0;
           cartesRetournees = [];
           verrouillage = false;
