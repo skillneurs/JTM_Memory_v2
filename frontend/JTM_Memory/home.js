@@ -88,4 +88,6 @@ cartes.forEach(carte => {
 
 btnrejouer.addEventListener("click", () => {
   window.location.reload()
+  score = 0;
+  combo = 0;
 })
