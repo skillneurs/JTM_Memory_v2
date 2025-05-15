@@ -4,6 +4,8 @@ const btnrejouer = document.getElementById("rejouer");
 //const totalescartes = cartes.length;
 //const cartestrouvee = document.querySelectorAll(".trouvee");
 const victoire = document.getElementById("victoire");
+let score = 0;
+
 
 console.log("Cartes récupérées :", cartes.map(c => c.dataset.valeur)); // affiche les valeurs avant mélange
 
@@ -40,6 +42,7 @@ cartes.forEach(carte => {
     if (cartesRetournees.length === 2) {
       verrouillage = true;
       const [carte1, carte2] = cartesRetournees;
+      
 
       if (carte1.dataset.valeur === carte2.dataset.valeur) {
         // Paire trouvée
@@ -47,6 +50,8 @@ cartes.forEach(carte => {
         carte1.classList.add("trouvee");
         carte2.classList.add("trouvee");
         cartestrouvee.push(1);
+        score ++;
+        document.getElementById("score").textContent = `Score : ${score}`;
 
         if (cartestrouvee.length === 8){
           console.log("terminée");
@@ -78,5 +83,3 @@ cartes.forEach(carte => {
 btnrejouer.addEventListener("click", () => {
   window.location.reload()
 })
-
-//img.classList.remove("none");

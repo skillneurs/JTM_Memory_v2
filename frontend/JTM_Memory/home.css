@@ -7,7 +7,16 @@ body{
 header{
     display: flex;
     flex-direction: column;
+}
+.info{
+    display: flex;
+    justify-content: space-between;
     align-items: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+#score{
+    color: blanchedalmond;
 }
 #memory{
     display: grid;
@@ -39,7 +48,7 @@ header{
     border: 3px solid red;
 }
 .carte.trouvee{
-    background-color: #caf685;
+    background-color: #caf685c2;
     border: 3px solid greenyellow;
 }
 h1{
