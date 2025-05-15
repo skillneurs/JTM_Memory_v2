@@ -69,6 +69,25 @@ h1{
     max-width: 80%;
     margin: auto;
     border: 1px rgb(0, 0, 0) solid;
+    background-color: #caf685c2;
+    color: blanchedalmond;
+    padding-bottom: 1rem;
+}
+#rejouer{
+    display: block;
+    color: cyan;
+    background-color: rgb(39, 84, 198);
+    text-decoration: none;
+    border-radius: 1rem;
+}
+#rejouer:hover{
+    background: cyan;
+    box-shadow: 
+    0 0 20px #239BFF,
+    0 0 80px #239BFF,
+    0 0 160px #239BFF,
+    0 0 320px #239BFF;
+    color: #255784;
 }
 .none{
     display: none;
