@@ -5,6 +5,7 @@ const btnrejouer = document.getElementById("rejouer");
 //const cartestrouvee = document.querySelectorAll(".trouvee");
 const victoire = document.getElementById("victoire");
 let score = 0;
+let combo = 0;
 
 
 console.log("Cartes récupérées :", cartes.map(c => c.dataset.valeur)); // affiche les valeurs avant mélange
@@ -50,8 +51,10 @@ cartes.forEach(carte => {
         carte1.classList.add("trouvee");
         carte2.classList.add("trouvee");
         cartestrouvee.push(1);
-        score ++;
+        combo ++;
+        score +=50 * combo;
         document.getElementById("score").textContent = `Score : ${score}`;
+        document.getElementById("combo").textContent = `Combo : ${combo}`;
 
         if (cartestrouvee.length === 8){
           console.log("terminée");
@@ -72,6 +75,7 @@ cartes.forEach(carte => {
           if (img1) img1.classList.add("none");
           if (img2) img2.classList.add("none");
 
+          combo = 0;
           cartesRetournees = [];
           verrouillage = false;
         }, 1000);

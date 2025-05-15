@@ -18,6 +18,10 @@ header{
 #score{
     color: blanchedalmond;
 }
+#combo{
+    color: blanchedalmond;
+    padding-left: 1rem;
+}
 #memory{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
