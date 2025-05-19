@@ -40,6 +40,7 @@ header{
     z-index: 1;
     cursor: pointer;
     border-radius: 4px;
+    padding: 4rem;
     color: #ffffff8f;
     border: 3px solid cyan;
     box-shadow: 0px 0px 15px cyan inset;
@@ -52,10 +53,12 @@ header{
 .carte.visible{
     background-color: #3573a38f;
     border: 3px solid red;
+ 
 }
 .carte.trouvee{
     background-color: #caf685c2;
     border: 3px solid greenyellow;
+  
 }
 h1{
    display: flex;
@@ -123,5 +126,5 @@ color: #255784;
 	top:1px;
 }
 .terre{
-    background-image: url(../img_memo/terre.webp);
+   
 }
