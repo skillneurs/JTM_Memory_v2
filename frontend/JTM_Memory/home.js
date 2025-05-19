@@ -91,3 +91,9 @@ btnrejouer.addEventListener("click", () => {
   score = 0;
   combo = 0;
 })
+const terre = document.getElementsByClassName("terre")
+terre.addEventListener("click", () => {
+element.classList.add('terre');
+
+
+})
