@@ -70,6 +70,8 @@ cartes.forEach(carte => {
         setTimeout(() => {
           carte1.classList.remove("visible");
           carte2.classList.remove("visible");
+           carte1.classList.add("padding");
+          carte2.classList.add("padding");
 
           const img1 = carte1.querySelector("img");
           const img2 = carte2.querySelector("img");
