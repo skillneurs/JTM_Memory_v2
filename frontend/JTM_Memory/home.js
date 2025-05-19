@@ -4,6 +4,7 @@ const btnrejouer = document.getElementById("rejouer");
 //const totalescartes = cartes.length;
 //const cartestrouvee = document.querySelectorAll(".trouvee");
 const victoire = document.getElementById("victoire");
+const scoreElements = document.querySelectorAll(".score")
 let score = 0;
 let combo = 0;
 
@@ -54,7 +55,9 @@ cartes.forEach(carte => {
         cartestrouvee.push(1);
         combo ++;
         score +=50 * combo;
-        document.getElementById("score").textContent = `Score : ${score}`;
+        scoreElements.forEach(el => {
+          el.textContent = `Score : ${score}`;
+        });
         document.getElementById("combo").textContent = `Combo : ${combo}`;
 
         if (cartestrouvee.length === 8){
@@ -79,7 +82,9 @@ cartes.forEach(carte => {
           if (img2) img2.classList.add("none");
 
           score -=20;
-          document.getElementById("score").textContent = `Score : ${score}`;
+          scoreElements.forEach(el => {
+              el.textContent = `Score : ${score}`;
+          });
           combo = 0;
           cartesRetournees = [];
           verrouillage = false;
