@@ -128,28 +128,28 @@ color: #255784;
     padding: 4rem;
 }
 .mars{
-    width: 50%;
+    width: 40%;
 }
 .uranus{
-    width: 47%;
+    width: 38%;
 }
 .mercure{
-    width: 50%;
+    width: 38%;
 }
 .neptune{
-    width: 50%;
+    width: 39%;
 }
 .saturne{
-    width: 50%;
+    width: 46%;
 }
 .terre{
-    width: 50%;
+    width: 40%;
 }
 .venus{
-    width: 50%;
+    width: 37%;
 }
 .jupiter{
-    width: 50%;
+    width: 38%;
 }
 .none{
     display: none;

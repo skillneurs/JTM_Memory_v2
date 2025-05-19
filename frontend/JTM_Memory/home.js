@@ -34,6 +34,7 @@ cartes.forEach(carte => {
     }
 
     carte.classList.add("visible");
+    carte.classList.remove("padding");
     const img = carte.querySelector("img")
     if(img){
       img.classList.remove("none");
