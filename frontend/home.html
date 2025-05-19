@@ -11,7 +11,7 @@
 
 <body>
     <header>
-        <div id="score">Score : 0</div>
+        <div class="score">Score : 0</div>
         <div id="combo">Combo : 0</div>
         <a id="compte" href="/backend/log/login.php">Espace Compte</a>
     </header>
@@ -61,9 +61,12 @@
             <img class="jupiter none" src="./img_memo/jupiter.webp">
         </div>
     </div>
-    <div id="victoire" class="none style">
-        <h2>Bien jouer tu a gagnée</h2>
-        <button id="rejouer">Rejouer</button>
+    <div id="victoire" class="none popup">
+        <div class="style">
+            <h2>Bien jouer tu a gagnée</h2>
+            <div class="score">Score : 0</div>
+            <button id="rejouer">Rejouer</button>
+        </div>
     </div>
     <script src="./javascript/home.js"></script>
 </body>
