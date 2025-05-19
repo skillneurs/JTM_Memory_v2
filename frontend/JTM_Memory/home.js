@@ -91,9 +91,3 @@ btnrejouer.addEventListener("click", () => {
   score = 0;
   combo = 0;
 })
-const terree = document.querySelector(".terre1")
-terree.addEventListener("click", () => {
-terree.classList.add('terre');
-
-
-})
