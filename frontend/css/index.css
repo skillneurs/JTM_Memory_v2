@@ -1,0 +1,42 @@
+.slidermenu {
+    max-width: 600px;
+    margin: 100px auto;
+    overflow: hidden;
+    border: 1px solid #020000;
+}
+
+.listeslide {
+    display: flex;
+    animation: listeslide 16s infinite ease-in-out;
+}
+.listeslide div {
+    background-color: brown;
+    flex-shrink: 0;
+    padding: 72px 0;
+    width: 100%;
+    text-align: center;
+    font-size: 45px;
+    color: #f1f1f1;
+}
+
+@keyframes listeslide {
+    0%, 12.5% {
+        transform: translateX(0%);
+    }
+
+    25%, 37.5% {
+        transform: translateX(-100%);
+    }
+
+    50%, 62.5% {
+        transform: translateX(-200%);
+    }
+
+    75%, 87.5% {
+        transform: translateX(-300%);
+    }
+
+    100% {
+        transform: translateX(-300%);
+    }
+}
