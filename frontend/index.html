@@ -1,58 +1,34 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Uploader une image</title>
- <link rel="stylesheet" href="./css/style.css">
- <link rel="stylesheet" href="./css/font.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/index.css">
 </head>
+
 <body>
-  <h1>Uploader une image</h1>
-
-  <form id="uploadForm" enctype="multipart/form-data">
-    <label>
-      Titre :
-      <input type="text" name="title" required>
-    </label>
-    <label>
-      Description :
-      <input type="text" name="description" required>
-    </label>
-    <label>
-      Fichier image :
-      <input type="file" name="image" accept="image/*" required>
-    </label>
-    <button type="submit">Envoyer</button>
-  </form>
-
-  <p id="status"></p>
-
-  <script>
-    const form = document.getElementById('uploadForm');
-    const status = document.getElementById('status');
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const formData = new FormData(form);
-
-      try {
-        const response = await fetch('http://localhost:5000/upload', {
-          method: 'POST',
-          body: formData
-        });
-
-        const result = await response.json();
-
-        if (response.ok) {
-          status.textContent = "✅ Image envoyée avec succès !";
-          form.reset();
-        } else {
-          status.textContent = "❌ Erreur : " + result.error;
-        }
-      } catch (err) {
-        status.textContent = "❌ Erreur réseau : " + err.message;
-      }
-    });
-  </script>
+    <header>
+        <h1>Jeux du memory</h1>
+    </header>
+    <main>
+        <div class="slidermenu">
+            
+                <div class="listeslide">
+                    <div id="slide1"><p>text1</p></div>
+                    <div id="slide2"><p>text2</p></div>
+                    <div id="slide3"><p>text3</p></div>
+                    <div id="slide1"><p>text1</p></div>
+                </div>
+            
+            <div class="boutonslide">
+                <a href="#slide1"></a>
+                <a href="#slide2"></a>
+                <a href="#slide3"></a>
+            </div>
+        </div>
+    </main>
 </body>
+
 </html>

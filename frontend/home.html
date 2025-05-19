@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="./css/font.css">
+    <title>Memory</title>
+</head>
+
+<body>
+    <header>
+        <div class="score">Score : 0</div>
+        <div id="combo">Combo : 0</div>
+        <a id="compte" href="/backend/log/login.php">Espace Compte</a>
+    </header>
+    <div id="memory">
+        <div class="carte padding" data-valeur="1"><img class="terre none" src="./img_memo/terre.webp"></div>
+        <div class="carte padding" data-valeur="1"><img class="terre none" src="./img_memo/terre.webp"></div>
+        <div class="carte padding" data-valeur="2">
+         <img class="mars none" src="./img_memo/mars.webp">
+        </div>
+        <div class="carte padding" data-valeur="2">
+            <img class="mars none" src="./img_memo/mars.webp">
+        </div>
+        <div class="carte padding" data-valeur="3">
+           <img class="uranus none" src="./img_memo/uranus.webp">
+        </div>
+        <div class="carte padding" data-valeur="3">
+           <img class="uranus none" src="./img_memo/uranus.webp">
+        </div>
+        <div class="carte padding" data-valeur="4">
+            <img class="venus none" src="./img_memo/venus.webp">
+        </div>
+        <div class="carte padding" data-valeur="4">
+            <img class="venus none" src="./img_memo/venus.webp">
+        </div>
+        <div class="carte padding" data-valeur="5">
+            <img class="mercure none" src="./img_memo/mercure.webp">
+        </div>
+        <div class="carte padding" data-valeur="5">
+          <img class="mercure none" src="./img_memo/mercure.webp">
+        </div>
+        <div class="carte padding" data-valeur="6">
+         <img class="saturne none" src="./img_memo/saturne.webp">
+        </div>
+        <div class="carte padding" data-valeur="6">
+           <img class="saturne none" src="./img_memo/saturne.webp">
+        </div>
+        <div class="carte padding" data-valeur="7">
+            <img class="neptune none" src="./img_memo/neptune.webp">
+        </div>
+        <div class="carte padding" data-valeur="7">
+           <img class="neptune none" src="./img_memo/neptune.webp">
+        </div>
+        <div class="carte padding" data-valeur="8">
+            <img class="jupiter none" src="./img_memo/jupiter.webp">
+        </div>
+        <div class="carte padding" data-valeur="8">
+            <img class="jupiter none" src="./img_memo/jupiter.webp">
+        </div>
+    </div>
+    <div id="victoire" class="none popup">
+        <div class="style">
+            <h2>Bien jouer tu a gagnée</h2>
+            <div class="score">Score : 0</div>
+            <button id="rejouer">Rejouer</button>
+        </div>
+    </div>
+    <script src="./javascript/home.js"></script>
+</body>
+
+</html>
