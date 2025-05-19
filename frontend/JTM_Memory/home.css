@@ -3,14 +3,15 @@ body{
     background-image: url(/frontend/img/panoramaSpace.png);
     background-repeat: no-repeat;
     background-size: cover;
+    overflow: hidden;
 }
 header{
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
 }
-#test{
-    background-image: url(../img_memo/terre.webp);
-}
+
 .info{
     display: flex;
     justify-content: space-between;
@@ -20,15 +21,17 @@ header{
 }
 #score{
     color: blanchedalmond;
+    padding-right: 1rem;
 }
 #combo{
     color: blanchedalmond;
-    padding-left: 1rem;
+    padding-right: 15rem;
+  
 }
 #memory{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    padding: 4rem;
+    padding: 1rem;
     text-align: center;
     gap: 2rem;
     margin: auto;
@@ -128,26 +131,26 @@ color: #255784;
     padding: 4rem;
 }
 .mars{
-    width: 40%;
-}
-.uranus{
-    width: 38%;
-}
-.mercure{
-    width: 38%;
-}
-.neptune{
-    width: 39%;
-}
-.saturne{
-    width: 46%;
-}
-.terre{
-    width: 40%;
-}
-.venus{
     width: 37%;
 }
+.uranus{
+    width: 35%;
+}
+.mercure{
+    width: 35%;
+}
+.neptune{
+    width: 36%;
+}
+.saturne{
+    width: 42%;
+}
+.terre{
+    width: 37%;
+}
+.venus{
+    width: 34%;
+}
 .jupiter{
-    width: 38%;
+    width: 35%;
 }
