@@ -1,24 +1,55 @@
+body{
+    background-image: url(../img/memobg.webp);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+header{
+    display: flex;
+    justify-content: center;
+}
+
 .slidermenu {
-    max-width: 600px;
+    max-width: 700px;
     margin: 100px auto;
     overflow: hidden;
     border: 1px solid #020000;
+    border-radius: 18px;
 }
 
 .listeslide {
     display: flex;
     animation: listeslide 16s infinite ease-in-out;
+    
 }
 .listeslide div {
     background-color: brown;
     flex-shrink: 0;
-    padding: 72px 0;
+    padding: 110px 0;
     width: 100%;
     text-align: center;
     font-size: 45px;
     color: #f1f1f1;
+   
 }
-
+#slide1{
+    background-image: url(../img/panoramaSpacebg.webp);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#slide2{
+    background-image: url(../img/moviebg.webp);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#slide3{
+    background-image: url(../img/lolbg.webp);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 @keyframes listeslide {
     0%, 12.5% {
         transform: translateX(0%);
