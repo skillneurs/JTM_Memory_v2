@@ -11,7 +11,7 @@ header {
     align-items: center;
     flex-direction: row;
     justify-content: space-evenly;
-    padding: 1rem 0rem;
+    padding: 0.5rem 0rem;
 }
 
 .info {
@@ -28,9 +28,7 @@ header {
 }
 
 #combo {
-    color: blanchedalmond;
-    padding-right: 15rem;
-  
+    color: blanchedalmond;  
 }
 
 #memory {
@@ -119,17 +117,18 @@ header {
     max-width: 75%;
 }
 
-#compte, #carriere {
-    display: block;
+.compte, .carriere {
+    display: flex;
     color: cyan;
     background-color: rgb(39, 84, 198);
     padding: 1rem 1.9rem;
     letter-spacing: 1rem;
     text-decoration: none;
     border-radius: 1rem;
+    justify-content: center;
 }
 
-#compte:hover, #carriere:hover {
+.compte:hover, .carriere:hover {
     background: cyan;
     box-shadow:
         0 0 20px #239BFF,
@@ -139,7 +138,7 @@ header {
     color: #255784;
 }
 
-#compte:active {
+.compte:active {
     position: relative;
     top: 1px;
 }
@@ -218,6 +217,14 @@ header {
     display: none;
 }
 
+.img-compte{
+    display: none;
+}
+.img-carriere{
+    display: none;
+}
+
+
 /* @media(max-width : 1200px){ 
     .padding{
         padding: 3rem;
@@ -238,6 +245,23 @@ header {
 }*/
 
 @media(min-width : 320px){
+    header{
+        padding: 0.5rem,0rem;
+    }
+    .btn-compte{
+        display: none;
+    }
+    .btn-carriere{
+        display: none;
+    }
+    .img-carriere{
+        display: block;
+        max-width: 100%;
+    }
+    .img-compte{
+        display: block;
+        max-width: 100%;
+    }
     #memory{
         grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
@@ -245,9 +269,15 @@ header {
     .padding{
         padding: 1.5rem;
     }
-    #compte{
+    .compte{
         padding: 0.6rem;
         letter-spacing: 0rem;
+        width: 6%;
+    }
+    .carriere{
+        padding: 0.6rem;
+        letter-spacing: 0rem;
+        width: 6%;
     }
     .mars{
         width: 32%;
@@ -284,6 +314,12 @@ header {
         grid-template-columns: repeat(4, 1fr);
         gap: 2rem;
     }
+    .compte{
+        width: 16%;
+    }
+    .carriere{
+        width: 9%;
+    }
     .padding{
         padding-bottom: 5rem;
     }
@@ -310,6 +346,18 @@ header {
     }
     .jupiter{
         width: 71%;
+    }
+    .img-compte{
+        display: none;
+    }
+    .img-carriere{
+        display: none;
+    }
+    .btn-compte{
+        display: flex;
+    }
+    .btn-carriere{
+        display: flex;
     }
 }
 @media(min-width : 800px){
