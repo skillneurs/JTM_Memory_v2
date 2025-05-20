@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -42,7 +46,14 @@
                     if (password_verify($mdp, $result['mdp'])) {
                         echo "Connexion réussie !";
                         // Rediriger vers une autre page 
+                        $_SESSION['user'] = [
+                            'id' => $result['id'],
+                            'identifiant' => $result['identifiant']
+                        ];
+                        // Redirection vers la page de score
                         header("Location: ../log/score.php");
+                        exit();
+
                     } else {
                         echo "Identifiant ou mot de passe incorrect.";
                     }
