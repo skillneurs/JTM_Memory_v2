@@ -1,107 +1,15 @@
-body{
-    background-image: url(../img/memobg.webp);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    padding: 0;
-    margin: 0;
+.slidermenu{
+    height: 300px;
+    width: 600px;
+    position: relative;
 }
-header{
-    display: flex;
-    justify-content: center;
+.navslide{
+    position: absolute;
 }
-.pslide{
-    color: red;
-    font-size: 50px;
-    text-shadow: 6px 7px 6px #ffffff;
-}
-.btnselect{
-    background-color: aqua;
-   
-}
-.slidermenu {
-    max-width: 700px;
-    margin:  auto;
-    overflow: hidden;
-    border: 1px solid #020000;
-    border-radius: 18px;
-}
-
-.listeslide {
-    display: flex;
-    animation: listeslide 16s infinite ease-in-out;
-    
-}
-.listeslide div {
-    background-color: brown;
-    flex-shrink: 0;
-    padding: 110px 0;
+.listeslide{
+    height:100% ;
     width: 100%;
-    text-align: center;
-    font-size: 45px;
-    color: #f1f1f1;
-   
 }
-#slide1{
-       background-image: url(../img/panoramaSpacebg.webp);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-.slide1{
-    background-image: url(../img/panoramaSpacebg.webp);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-#slide2{
-    background-image: url(../img/moviebg.webp);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-#slide3{
-    background-image: url(../img/lolbg.webp);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-@keyframes listeslide {
-    0%, 12.5% {
-        transform: translateX(0%);
-    }
-
-    25%, 37.5% {
-        transform: translateX(-100%);
-    }
-
-    50%, 62.5% {
-        transform: translateX(-200%);
-    }
-
-    75%, 87.5% {
-        transform: translateX(-300%);
-    }
-
-    100% {
-        transform: translateX(-300%);
-    }
-}
-.boutonslide {
-    display: flex;
-    justify-content: center;
-    margin-top: 15px;
-    gap: 1rem;
-}
-
-.btnselect {
-    display: inline-block;
-    padding: 1rem;
-    border-radius: 50%;
-    background-color: rgb(2, 2, 2);
-    transition: background-color 0.3s;
-}
-
-.btnselect:hover {
-    background-color: #c8cdd0;
+.slider{
+    border: 1px red solid;
 }
