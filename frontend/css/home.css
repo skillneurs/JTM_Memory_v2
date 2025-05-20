@@ -60,7 +60,10 @@ header {
 .carte.visible {
     background-color: #3573a38f;
     border: 3px solid red;
- 
+    animation: rotate 0.8s ease-out forwards;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .carte.trouvee {
