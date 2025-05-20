@@ -10,7 +10,8 @@ header {
     display: flex;
     align-items: center;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-evenly;
+    padding: 1rem 0rem;
 }
 
 .info {
