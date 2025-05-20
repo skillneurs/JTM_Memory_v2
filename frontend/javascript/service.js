@@ -1,6 +1,8 @@
 function previous() {
-
+const widthSlider = document.querySelector(".slider").offsetWidth;
+    document.querySelector('.slider_content').scrollLeft -= widthSlider;
 }
 function next() {
-    document.querySelector('.slider_content').scrollLeft +=20;
+    const widthSlider = document.querySelector(".slider").offsetWidth;
+    document.querySelector('.slider_content').scrollLeft += widthSlider;
 }
