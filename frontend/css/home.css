@@ -1,34 +1,38 @@
-body{
+body {
     background-color: blanchedalmond;
     background-image: url(/frontend/img/panoramaSpacebg.webp);
     background-repeat: no-repeat;
     background-size: cover;
     overflow: hidden;
 }
-header{
+
+header {
     display: flex;
     align-items: center;
     flex-direction: row;
     justify-content: center;
 }
 
-.info{
+.info {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-left: 1rem;
     padding-right: 1rem;
 }
-.score{
+
+.score {
     color: blanchedalmond;
     padding-right: 1rem;
 }
-#combo{
+
+#combo {
     color: blanchedalmond;
     padding-right: 15rem;
-  
+
 }
-#memory{
+
+#memory {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     padding: 1rem;
@@ -37,7 +41,7 @@ header{
     margin: auto;
 }
 
-.carte{
+.carte {
     display: block;
     background-color: #133aeb8f;
     z-index: 1;
@@ -47,101 +51,133 @@ header{
     border: 3px solid cyan;
     box-shadow: 0px 0px 15px cyan inset;
 }
- .carte:hover {
-      transform: scale(1.05);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
-     }
 
-.carte.visible{
+.carte:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.carte.visible {
     background-color: #3573a38f;
     border: 3px solid red;
- 
+    animation: rotate 0.8s ease-out forwards;
+
 }
-.carte.trouvee{
+
+.carte.trouvee {
     background-color: #caf685c2;
     border: 3px solid greenyellow;
-  
+
 }
-h1{
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   color: #72c5e1;
+
+
+
+@keyframes rotate {
+  0% {
+    transform: rotateY(90deg) scale(0.8);
+    opacity: 0;
+    box-shadow: 0 0 0px cyan;
+  }
+  60% {
+    transform: rotateY(-10deg) scale(1.05);
+    opacity: 0.8;
+    box-shadow: 0 0 20px cyan;
+  }
+  100% {
+    transform: rotateY(0deg) scale(1);
+    opacity: 1;
+    box-shadow: 0 0 10px cyan;
+  }
 }
-#rejouer{
+
+
+#rejouer {
     display: block;
     color: cyan;
     background-color: rgb(39, 84, 198);
     text-decoration: none;
     border-radius: 1rem;
 }
-#rejouer:hover{
+
+#rejouer:hover {
     background: cyan;
-    box-shadow: 
-    0 0 20px #239BFF,
-    0 0 80px #239BFF,
-    0 0 160px #239BFF,
-    0 0 320px #239BFF;
+    box-shadow:
+        0 0 20px #239BFF,
+        0 0 80px #239BFF,
+        0 0 160px #239BFF,
+        0 0 320px #239BFF;
     color: #255784;
 }
 
-.img{
+.img {
     z-index: 7;
     object-fit: cover;
     background-repeat: no-repeat;
     max-width: 75%;
 }
+
 #compte {
-display: block;
-color: cyan;
-background-color: rgb(39, 84, 198);
-padding: 1rem 1.9rem;
-letter-spacing: 1rem;
-text-decoration: none;
-border-radius: 1rem;
+    display: block;
+    color: cyan;
+    background-color: rgb(39, 84, 198);
+    padding: 1rem 1.9rem;
+    letter-spacing: 1rem;
+    text-decoration: none;
+    border-radius: 1rem;
 }
+
 #compte:hover {
-background: cyan;
-box-shadow: 
-0 0 20px #239BFF,
-0 0 80px #239BFF,
-0 0 160px #239BFF,
-0 0 320px #239BFF;
-color: #255784;
+    background: cyan;
+    box-shadow:
+        0 0 20px #239BFF,
+        0 0 80px #239BFF,
+        0 0 160px #239BFF,
+        0 0 320px #239BFF;
+    color: #255784;
 }
+
 #compte:active {
-	position:relative;
-	top:1px;
+    position: relative;
+    top: 1px;
 }
-.padding{
+
+.padding {
     padding: 4rem;
 }
-.mars{
+
+.mars {
     width: 37%;
 }
-.uranus{
-    width: 35%;
-}
-.mercure{
-    width: 35%;
-}
-.neptune{
-    width: 36%;
-}
-.saturne{
-    width: 42%;
-}
-.terre{
-    width: 37%;
-}
-.venus{
-    width: 34%;
-}
-.jupiter{
+
+.uranus {
     width: 35%;
 }
 
-.popup{
+.mercure {
+    width: 35%;
+}
+
+.neptune {
+    width: 36%;
+}
+
+.saturne {
+    width: 42%;
+}
+
+.terre {
+    width: 37%;
+}
+
+.venus {
+    width: 34%;
+}
+
+.jupiter {
+    width: 35%;
+}
+
+.popup {
     position: fixed;
     top: 0;
     left: 0;
@@ -153,7 +189,8 @@ color: #255784;
     align-items: center;
     justify-content: center;
 }
-.style{
+
+.style {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -169,9 +206,11 @@ color: #255784;
     top: 50%;
     left: 50%;
 }
-.style div{
+
+.style div {
     margin: 10px;
 }
-.none{
+
+.none {
     display: none;
 }
