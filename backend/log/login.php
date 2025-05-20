@@ -42,7 +42,7 @@
                     if (password_verify($mdp, $result['mdp'])) {
                         echo "Connexion réussie !";
                         // Rediriger vers une autre page 
-                        header("Location: ../../frontend/home.html");
+                        header("Location: ../log/score.php");
                     } else {
                         echo "Identifiant ou mot de passe incorrect.";
                     }

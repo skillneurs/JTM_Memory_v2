@@ -39,6 +39,7 @@ cartes.forEach(carte => {
     const img = carte.querySelector("img");
     if(img){
       img.classList.remove("none");
+      img.classList.add("rotate");
     }
     cartesRetournees.push(carte);
 

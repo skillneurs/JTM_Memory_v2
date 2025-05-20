@@ -1,20 +1,19 @@
-.slidermenu{
-    height: 300px;
-    width: 600px;
-    position: relative;
-    margin: auto;
-}
-.navslide{
-    position: absolute;
-}
-.listeslide{
-    height:100% ;
-    width: 100%;
+body{
+    background-color: black;
 }
 .slider{
-    border: 1px red solid;
-    width: 600px;
-    height: 300px;
+    max-width: 600px;
+    margin: 100px auto;
+    overflow: hidden;
+    border: 1px solid #f1f1f1;
+}
+.slider_content{
+    display: flex;
     text-align: center;
-    
+}
+.slider_content_item{
+    background-color: rgb(177, 32, 32);
+    flex-shrink:0 ;
+    padding: 72px 0;
+    width: 100%;
 }
