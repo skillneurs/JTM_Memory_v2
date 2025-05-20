@@ -1,0 +1,19 @@
+body{
+    background-color: black;
+}
+.slider{
+    max-width: 600px;
+    margin: 100px auto;
+    overflow: hidden;
+    border: 1px solid #f1f1f1;
+}
+.slider_content{
+    display: flex;
+    text-align: center;
+}
+.slider_content_item{
+    background-color: rgb(177, 32, 32);
+    flex-shrink:0 ;
+    padding: 72px 0;
+    width: 100%;
+}
