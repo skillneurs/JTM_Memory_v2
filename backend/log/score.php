@@ -19,7 +19,7 @@ if (!isset($_SESSION['user'])) {
 <body>
     <h1>Bienvenue, <?php echo htmlspecialchars($_SESSION['user']['identifiant']); ?> !</h1>
     <p>Voici votre score ou autres données personnelles.</p>
+    <a href="../../frontend/home.html">Jouer</a>
     <a href="logout.php">Se déconnecter</a>
 </body>
 </html>
-    
