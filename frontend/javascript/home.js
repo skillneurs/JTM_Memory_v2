@@ -4,10 +4,10 @@ const btnrejouer = document.getElementById("rejouer");
 //const totalescartes = cartes.length;
 //const cartestrouvee = document.querySelectorAll(".trouvee");
 const victoire = document.getElementById("victoire");
-const scoreElements = document.querySelectorAll(".score")
+const scoreElements = document.querySelectorAll(".score");
 let score = 0;
 let combo = 0;
-
+//let timer = 0;
 
 console.log("Cartes récupérées :", cartes.map(c => c.dataset.valeur)); // affiche les valeurs avant mélange
 
@@ -36,9 +36,10 @@ cartes.forEach(carte => {
 
     carte.classList.add("visible");
     carte.classList.remove("padding");
-    const img = carte.querySelector("img")
+    const img = carte.querySelector("img");
     if(img){
       img.classList.remove("none");
+      img.classList.add("rotate");
     }
     cartesRetournees.push(carte);
 
