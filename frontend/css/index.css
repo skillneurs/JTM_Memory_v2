@@ -2,6 +2,7 @@
     height: 300px;
     width: 600px;
     position: relative;
+    margin: auto;
 }
 .navslide{
     position: absolute;
@@ -12,4 +13,8 @@
 }
 .slider{
     border: 1px red solid;
+    width: 600px;
+    height: 300px;
+    text-align: center;
+    
 }
