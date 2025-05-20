@@ -10,10 +10,50 @@ body{
 .slider_content{
     display: flex;
     text-align: center;
+    overflow-x: auto;
+    overflow: hidden;
+    scroll-behavior: smooth;
 }
 .slider_content_item{
     background-color: rgb(177, 32, 32);
     flex-shrink:0 ;
     padding: 72px 0;
     width: 100%;
+}
+#slide1{
+    background-image: url(../img/panoramaSpacebg.webp);
+    background-position: center;
+    background-size: cover;
+    background-repeat: repeat;
+}
+#slide2{
+    background-image: url(../img/lolbg.webp);
+    background-position: center;
+    background-size: cover;
+    background-repeat: repeat;
+}
+#slide3{
+    background-image: url(../img/moviebg.webp);
+    background-position: center;
+    background-size: cover;
+    background-repeat: repeat;
+}
+#slide4{
+    background-image: url(../img/memobg.webp);
+    background-position: center;
+    background-size: cover;
+    background-repeat: repeat;
+}
+.nav_btn{
+    background-color: rgb(0, 0, 0);
+    border-radius: 50%;
+    border: 1px solid #f1f1f1;
+    cursor: pointer;
+}
+.nav_btn svg{
+    width: 50px;
+    height: 50px;
+}
+.nav_btn svg{
+    stroke: #ffffff;
 }
