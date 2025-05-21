@@ -1,6 +1,6 @@
 const galleryContainer = document.querySelector('.gallery_container');
 const galleryControlsContainer = document.querySelector('.gallery_controls');
-const galleryControls = ['previous','next'];
+const galleryControls = ['',''];
 const galleryItems = document.querySelectorAll('.gallery_item');
 
 class Carouse1 {
