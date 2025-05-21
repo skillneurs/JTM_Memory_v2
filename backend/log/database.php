@@ -5,12 +5,11 @@
     //define('DM_NAME', 'memory');
     //define('USER', 'root');
     //define('PASSWORD', '');
-    //109.234.161.199
     
     // serveur
     define('HOST', '109.234.161.199');
-    define('DM_NAME', 'jonteomat_memory');
-    define('USER', 'jonteomat_jonteomat');
+    define('DM_NAME', 'jonteomat2_memory');
+    define('USER', 'jonteomat2_jonteomat2');
     define('PASSWORD', '*56j3_j/CVNp');
 
 
