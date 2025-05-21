@@ -1,12 +1,12 @@
 body {
     margin: 0;
     padding: 0;
-background-image: url(../img/image-cache.webp);
-background-size: cover;
-background-repeat: no-repeat;
-background-position: center;
- overflow: hidden;
- 
+    background-image: url(../img/image-cache.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+
 }
 
 header {
@@ -14,21 +14,25 @@ header {
     flex-direction: column;
     align-items: center;
 }
-h1{
+
+h1 {
     color: aliceblue;
 }
-h2{
+
+h2 {
     margin: 0;
     color: aliceblue;
 }
-.herobtn{
+
+.herobtn {
     display: flex;
-    justify-content: flex-end;
-    padding-right: 5%;
-    padding-bottom: 5%;
+    justify-content: space-between;
+
 
 }
-.compte, .carriere {
+
+.compte,
+.carriere {
     display: flex;
     color: cyan;
     background-color: rgba(39, 84, 198, 0.501);
@@ -39,7 +43,8 @@ h2{
     justify-content: center;
 }
 
-.compte:hover, .carriere:hover {
+.compte:hover,
+.carriere:hover {
     background: rgba(0, 255, 255, 0.545);
     box-shadow:
         0 0 20px #239BFF,
