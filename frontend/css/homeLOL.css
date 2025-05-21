@@ -1,6 +1,6 @@
 body {
     background-color: blanchedalmond;
-    background-image: url(/frontend/img/panoramaSpacebg.webp);
+    background-image: url(/frontend/img/maplolbg.webp);
     background-repeat: no-repeat;
     background-size: cover;
     overflow: hidden;
@@ -42,13 +42,13 @@ header {
 
 .carte {
     display: block;
-    background-color: #133aeb8f;
+    background-color: #c89c3c79;
     z-index: 1;
     cursor: pointer;
     border-radius: 4px;
     color: #ffffff8f;
-    border: 3px solid cyan;
-    box-shadow: 0px 0px 15px cyan inset;
+    border: 3px solid rgb(177, 158, 87);
+    box-shadow: 0px 0px 15px rgb(217, 255, 0) inset;
 }
 
 .carte:hover {
@@ -57,7 +57,7 @@ header {
 }
 
 .carte.visible {
-    background-color: #3573a38f;
+    background-color: #dde75c8f;
     border: 3px solid red;
     animation: rotate 0.8s ease-out forwards;
     display: flex;
@@ -77,37 +77,37 @@ header {
   0% {
     transform: rotateY(90deg) scale(0.8);
     opacity: 0;
-    box-shadow: 0 0 0px cyan;
+    box-shadow: 0 0 0px #c3ca49;
   }
   60% {
     transform: rotateY(-10deg) scale(1.05);
     opacity: 0.8;
-    box-shadow: 0 0 20px cyan;
+    box-shadow: 0 0 20px #c3ca49;
   }
   100% {
     transform: rotateY(0deg) scale(1);
     opacity: 1;
-    box-shadow: 0 0 10px cyan;
+    box-shadow: 0 0 10px #c3ca49;
   }
 }
 
 
 #rejouer {
     display: block;
-    color: cyan;
-    background-color: rgb(39, 84, 198);
+    color: rgb(188, 179, 6);
+    background-color: rgb(174, 180, 63);
     text-decoration: none;
     border-radius: 1rem;
 }
 
 #rejouer:hover {
-    background: cyan;
+    background: rgb(179, 183, 48);
     box-shadow:
-        0 0 20px #239BFF,
-        0 0 80px #239BFF,
-        0 0 160px #239BFF,
-        0 0 320px #239BFF;
-    color: #255784;
+        0 0 20px #edf901,
+        0 0 80px #edf901,
+        0 0 160px #edf901,
+        0 0 320px #edf901;
+    color: #000000;
 }
 
 .img {
@@ -119,8 +119,8 @@ header {
 
 .compte, .home {
     display: flex;
-    color: cyan;
-    background-color: rgb(39, 84, 198);
+    color: #000000;
+    background-color: #edf901;
     padding: 1rem 1.9rem;
     letter-spacing: 1rem;
     text-decoration: none;
@@ -129,13 +129,13 @@ header {
 }
 
 .compte:hover, .home:hover {
-    background: cyan;
+    background: rgba(255, 252, 104, 0.842);
     box-shadow:
-        0 0 20px #239BFF,
-        0 0 80px #239BFF,
-        0 0 160px #239BFF,
-        0 0 320px #239BFF;
-    color: #255784;
+        0 0 20px #707435,
+        0 0 80px #707435,
+        0 0 160px #707435,
+        0 0 320px #707435;
+    color: #000000;
 }
 
 .compte:active {
@@ -200,10 +200,10 @@ header {
     max-width: 80%;
     width: 60%;
     margin: auto;
-    background-color: rgb(39, 84, 198);
+    background-color: rgb(255, 247, 0);
     border-radius: 4px;
-    border: 3px solid cyan;
-    box-shadow: 0px 0px 15px cyan inset;
+    border: 3px solid rgb(149, 165, 58);
+    box-shadow: 0px 0px 15px rgb(68, 110, 23) inset;
     padding-bottom: 1rem;
     top: 50%;
     left: 50%;
