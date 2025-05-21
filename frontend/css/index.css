@@ -1,17 +1,31 @@
 body{
-    height: 100vh;
     margin: 0;
     padding: 0;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
     background: linear-gradient(180deg, rgb(236, 213, 232)0%, rgb(50, 112, 118)100%);
+   height: 100vh;
+}
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .svg{
-        width: 70px;
+    width: 70px;
     height: 70px;
 }
+.svg2{
+    width: 70px;
+    height: 70px;
+     animation: bounceDown 1s infinite;
+}
+   @keyframes bounceDown {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(15px);
+      }
+    }
 .gallery{
     width: 100%;
 }
@@ -69,8 +83,6 @@ transform: translateX(-50%);
 .gallery_controls{
     display: flex;
     justify-content: center;
-    margin: 25px 0;
-    height: 100px;
 }
 .gallery_controls button{
     background-color: transparent;
