@@ -15,6 +15,8 @@ if (!isset($_SESSION['user'])) {
 <head>
     <meta charset="UTF-8">
     <title>Score</title>
+    <link rel="stylesheet" href="../log/score.css">
+    <link rel="stylesheet" href="../../frontend/css/font.css">
 </head>
 <body>
     <h1>Bienvenue, <?php echo htmlspecialchars($_SESSION['user']['identifiant']); ?> !</h1>
