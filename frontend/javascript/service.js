@@ -1,6 +1,6 @@
 const galleryContainer = document.querySelector('.gallery_container');
 const galleryControlsContainer = document.querySelector('.gallery_controls');
-const galleryControls = ['',''];
+const galleryControls = ['previous','next'];
 const galleryItems = document.querySelectorAll('.gallery_item');
 
 class Carouse1 {
@@ -34,12 +34,15 @@ class Carouse1 {
         this.updateGallery();
     }
 
-    setControls(){
-        this.carouse1Controls.forEach(control => {
-            galleryControlsContainer.appendChild(document.createElement('button')).className = `gallery_controls_${control}`;
-            document.querySelector(`.gallery_controls_${control}`).innerText = control;
-        })
-    }
+   setControls() {
+    this.carouse1Controls.forEach(control => {
+        const button = document.createElement('button');
+        button.className = `gallery_controls_${control}`;
+        button.innerHTML = control === 'previous' ? '←' : '→'; 
+        galleryControlsContainer.appendChild(button);
+    });
+}
+
     useControls(){
         const triggers = [...galleryControlsContainer.childNodes];
         triggers.forEach(control =>{
