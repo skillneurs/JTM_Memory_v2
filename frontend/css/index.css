@@ -8,6 +8,10 @@ body{
     align-items: center;
     background: linear-gradient(180deg, rgb(236, 213, 232)0%, rgb(50, 112, 118)100%);
 }
+.svg{
+        width: 70px;
+    height: 70px;
+}
 .gallery{
     width: 100%;
 }

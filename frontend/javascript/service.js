@@ -34,14 +34,32 @@ class Carouse1 {
         this.updateGallery();
     }
 
-   setControls() {
+setControls() {
     this.carouse1Controls.forEach(control => {
         const button = document.createElement('button');
         button.className = `gallery_controls_${control}`;
-        button.innerHTML = control === 'previous' ? '←' : '→'; 
+
+        if (control === 'previous') {
+            button.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" class="svg"  fill="none" viewBox="0 0 24 24"
+                    stroke-width="1.5" stroke="currentColor" class="size-6" >
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                </svg>
+            `;
+        } else {
+            button.innerHTML = `
+                <svg  xmlns="http://www.w3.org/2000/svg" class="svg" fill="none" viewBox="0 0 24 24"
+                    stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                </svg>
+            `;
+        }
+
         galleryControlsContainer.appendChild(button);
     });
 }
+
+
 
     useControls(){
         const triggers = [...galleryControlsContainer.childNodes];
