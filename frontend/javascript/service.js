@@ -74,3 +74,8 @@ setControls() {
 const exempleCarousel1 = new Carouse1(galleryContainer, galleryItems, galleryControls);
 exempleCarousel1.setControls();
 exempleCarousel1.useControls();
+
+const link1 = document.querySelector('.gallery_item.gallery_item_1');
+link1.addEventListener("click", function () {
+    window.location = "home.html";
+});
