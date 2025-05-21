@@ -117,7 +117,7 @@ header {
     max-width: 75%;
 }
 
-.compte, .home {
+.compte, .carriere {
     display: flex;
     color: cyan;
     background-color: rgb(39, 84, 198);
@@ -128,7 +128,7 @@ header {
     justify-content: center;
 }
 
-.compte:hover, .home:hover {
+.compte:hover, .carriere:hover {
     background: cyan;
     box-shadow:
         0 0 20px #239BFF,
