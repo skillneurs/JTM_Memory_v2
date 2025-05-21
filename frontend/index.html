@@ -10,41 +10,24 @@
 </head>
 
 <body>
-    <header>
-        <h1>Jeux du memory</h1>
-    </header>
-    <main>
-        <div class="slider_nav">
-            <button class="nav_btn" onclick="previous()"><svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                    viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
-                </svg>
+    <div class="gallery">
+        <div class="gallery_container">
+            <img class="gallery_item gallery_item_1" src="./img/panoramaSpacebg.webp" alt="" data-index="1">
+            <img class="gallery_item gallery_item_2" src="./img/moviebg.webp" alt="" data-index="2">
+            <img class="gallery_item gallery_item_3" src="./img/lolbg.webp" alt="" data-index="3">
+            <img class="gallery_item gallery_item_4" src="./img/memobg.webp" alt="" data-index="4">
+            <img class="gallery_item gallery_item_5" src="./img/panoramaSpacebg.webp" alt="" data-index="5">
+        </div>
+        <div class="gallery_controls">
+            <button>
+                <img src="./img/arrow.png" alt="">
             </button>
-            <button class="nav_btn" onclick="next()"><svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                    viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                </svg>
+            <button>
+                <img src="./img/arrow.png" alt="">
             </button>
         </div>
-        <div class="slider">
-            <div class="slider_content">
-                <div id="slide1" class="slider_content_item">
-                    <p>Solar System</p>
-                </div>
-                <div id="slide2" class="slider_content_item">
-                    <p>League of legends</p>
-                </div>
-                <div id="slide3" class="slider_content_item">
-                    <p>movies</p>
-                </div>
-                <div id="slide4" class="slider_content_item">
-                    <p>other</p>
-                </div>
-            </div>
-        </div>
-
-        <script src="./javascript/service.js"></script>
-    </main>
+    </div>
+    <script src="./javascript/service.js"></script>
 </body>
 
 </html>
