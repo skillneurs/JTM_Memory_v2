@@ -15,13 +15,14 @@ if (!isset($_SESSION['user'])) {
 <head>
     <meta charset="UTF-8">
     <title>Score</title>
-    <link rel="stylesheet" href="../log/score.css">
+    <link rel="stylesheet" href="../../frontend/css/score.css">
     <link rel="stylesheet" href="../../frontend/css/font.css">
 </head>
 <body>
     <h1>Bienvenue, <?php echo htmlspecialchars($_SESSION['user']['identifiant']); ?> !</h1>
-    <p>Voici votre score ou autres données personnelles.</p>
-    <a href="../../frontend/home.html">Jouer</a>
-    <a href="logout.php">Se déconnecter</a>
+    <div class="score">Voici votre score : 0</div>
+    <a class="btn-jouer" href="../../frontend/index.html">Jouer</a>
+    <a class="btn-logout" href="logout.php">Se déconnecter</a>
+    <script src="../../frontend/javascript/home.js"></script>
 </body>
 </html>
