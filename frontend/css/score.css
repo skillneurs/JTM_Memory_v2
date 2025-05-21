@@ -1,0 +1,39 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url(../img/image-cache.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1{
+    color: #239BFF;
+}
+
+.btn-jouer, .btn-logout {
+    display: flex;
+    color: cyan;
+    background-color: rgba(39, 84, 198, 0.501);
+    padding: 1rem 1.9rem;
+    letter-spacing: 1rem;
+    text-decoration: none;
+    border-radius: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.btn-jouer:hover, .btn-logout:hover {
+    background: rgba(0, 255, 255, 0.545);
+    box-shadow:
+        0 0 20px #239BFF,
+        0 0 80px #239BFF,
+        0 0 160px #239BFF,
+        0 0 320px #239BFF;
+    color: #255784;
+}
