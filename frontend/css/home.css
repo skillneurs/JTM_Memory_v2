@@ -117,7 +117,7 @@ header {
     max-width: 75%;
 }
 
-.compte, .carriere {
+.compte, .home {
     display: flex;
     color: cyan;
     background-color: rgb(39, 84, 198);
@@ -128,7 +128,7 @@ header {
     justify-content: center;
 }
 
-.compte:hover, .carriere:hover {
+.compte:hover, .home:hover {
     background: cyan;
     box-shadow:
         0 0 20px #239BFF,
@@ -220,7 +220,7 @@ header {
 .img-compte{
     display: none;
 }
-.img-carriere{
+.img-home{
     display: none;
 }
 
@@ -251,10 +251,10 @@ header {
     .btn-compte{
         display: none;
     }
-    .btn-carriere{
+    .btn-home{
         display: none;
     }
-    .img-carriere{
+    .img-home{
         display: block;
         max-width: 100%;
     }
@@ -274,7 +274,7 @@ header {
         letter-spacing: 0rem;
         width: 6%;
     }
-    .carriere{
+    .home{
         padding: 0.6rem;
         letter-spacing: 0rem;
         width: 6%;
@@ -317,7 +317,7 @@ header {
     .compte{
         width: 10%;
     }
-    .carriere{
+    .home{
         width: 9%;
     }
     .padding{
@@ -350,13 +350,13 @@ header {
     .img-compte{
         display: none;
     }
-    .img-carriere{
+    .img-home{
         display: none;
     }
     .btn-compte{
         display: flex;
     }
-    .btn-carriere{
+    .btn-home{
         display: flex;
     }
 }
