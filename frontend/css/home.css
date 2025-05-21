@@ -117,31 +117,7 @@ header {
     max-width: 75%;
 }
 
-.compte, .carriere {
-    display: flex;
-    color: cyan;
-    background-color: rgb(39, 84, 198);
-    padding: 1rem 1.9rem;
-    letter-spacing: 1rem;
-    text-decoration: none;
-    border-radius: 1rem;
-    justify-content: center;
-}
 
-.compte:hover, .carriere:hover {
-    background: cyan;
-    box-shadow:
-        0 0 20px #239BFF,
-        0 0 80px #239BFF,
-        0 0 160px #239BFF,
-        0 0 320px #239BFF;
-    color: #255784;
-}
-
-.compte:active {
-    position: relative;
-    top: 1px;
-}
 
 .padding {
     padding: 4rem;
