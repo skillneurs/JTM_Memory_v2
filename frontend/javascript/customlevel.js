@@ -54,7 +54,20 @@ const imagePaths = [
   "./img_memo/imgMOVIE/spiderman.webp",
   "./img_memo/imgMOVIE/terminator.webp",
   "./img_memo/imgMOVIE/terrifier.webp",
+  "./img_memo/imgSW/bb8.webp",
+  "./img_memo/imgSW/c3po.webp",
+  "./img_memo/imgSW/droidecombat.webp",
+  "./img_memo/imgSW/dv.webp",
+  "./img_memo/imgSW/étoilenoire.webp",
+  "./img_memo/imgSW/jaba.webp",
+  "./img_memo/imgSW/mdo.webp",
+  "./img_memo/imgSW/mk.webp",
+  "./img_memo/imgSW/palpatine.webp",
+  "./img_memo/imgSW/redtrooper.webp",
+  "./img_memo/imgSW/sond.webp",
+  "./img_memo/imgSW/yoda.webp",
 
+   
   
 ];
 
