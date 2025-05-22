@@ -30,15 +30,34 @@ document.body.appendChild(restartBtn);
 
 // Tableau contenant les chemins des images disponibles dans le dossier "img"
 const imagePaths = [
-  "img/img1.jpg",
-  "img/img2.jpg",
-  "img/img3.jpg",
-  "img/img4.jpg",
-  "img/img5.jpg",
-  "img/img6.jpg",
-  "img/img7.jpg",
-  "img/img8.jpg"
+  "./img/planet.webp",
+  "./img_memo/jupiter.webp",
+  "./img_memo/mars.webp",
+  "./img_memo/mercure.webp",
+  "./img_memo/neptune.webp",
+  "./img_memo/saturne.webp",
+  "./img_memo/terre.webp",
+  "./img_memo/uranus.webp",
+  "./img_memo/venus.webp",
+  "./img_memo/terre.webp",
+  "./img_memo/terre.webp",
 ];
+
+// Fonction Fisher-Yates pour mélanger un tableau
+function shuffleArray(array) {
+  let currentIndex = array.length, randomIndex;
+
+  while (currentIndex !== 0) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+  }
+  return array;
+}
+
+// Crée une copie mélangée des images au lancement
+let shuffledImages = shuffleArray([...imagePaths]);
 
 // Met à jour l'affichage du nombre de paires à l'écran
 function updatePairCountDisplay() {
@@ -95,7 +114,7 @@ function createCardElement(imageSrc) {
 // Ajoute une paire de cartes avec la prochaine image disponible au clic sur "+"
 increaseBtn.addEventListener("click", () => {
   // Si on a déjà utilisé toutes les images disponibles, on bloque
-  if (imageIndex >= imagePaths.length) {
+  if (imageIndex >= shuffledImages.length) {
     alert("Plus d’images disponibles.");
     return;
   }
@@ -104,7 +123,7 @@ increaseBtn.addEventListener("click", () => {
   updatePairCountDisplay();
 
   // Récupère l'image courante et incrémente l'index
-  const imageSrc = imagePaths[imageIndex];
+  const imageSrc = shuffledImages[imageIndex];
   imageIndex++;
 
   // Crée 2 cartes identiques (une paire) et les ajoute au container
@@ -131,13 +150,21 @@ decreaseBtn.addEventListener("click", () => {
 
 // Fonction pour mélanger les cartes dans le container (algorithme Fisher-Yates)
 function shuffleCards() {
-  const cards = Array.from(cartesContainer.children); // Copie tableau des cartes
+  const cards = Array.from(cartesContainer.children); // Récupère les cartes dans un tableau
+
+  // Fisher-Yates shuffle classique
   for (let i = cards.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    // Change la position des cartes dans le DOM pour mélanger
-    cartesContainer.insertBefore(cards[j], cards[i]);
+    [cards[i], cards[j]] = [cards[j], cards[i]];
   }
+
+  // Vide le container
+  cartesContainer.innerHTML = "";
+
+  // Réinsère les cartes dans l’ordre mélangé
+  cards.forEach(card => cartesContainer.appendChild(card));
 }
+
 
 // Au clic sur "Play"
 playBtn.addEventListener("click", () => {
@@ -173,15 +200,19 @@ function checkForMatch() {
   if (img1 === img2) {
     // Si images identiques : paire trouvée
     flippedCount += 2; // Compte les cartes trouvées
+    setTimeout(() => {
+      firstCard.querySelector(".card-back").style.backgroundColor = "lightgreen";
+      secondCard.querySelector(".card-back").style.backgroundColor = "lightgreen";
 
-    // Remet à zéro les cartes sélectionnées pour le prochain tour
-    firstCard = null;
-    secondCard = null;
+      // Vérifie si toutes les cartes sont retournées après le délai
+      if (flippedCount === cartesContainer.children.length) {
+        showWinMessage();
+      }
 
-    // Si toutes les cartes sont retournées → victoire
-    if (flippedCount === cartesContainer.children.length) {
-      showWinMessage();
-    }
+      // Reset les cartes sélectionnées après coloration
+      firstCard = null;
+      secondCard = null;
+    }, 1000);
   } else {
     // Sinon, mauvaise paire → bloque le plateau et retourne les cartes après 1s
     lockBoard = true;
@@ -211,7 +242,7 @@ restartBtn.addEventListener("click", () => {
   firstCard = null;
   secondCard = null;
   flippedCount = 0;
-  pairCount = 6;
+  pairCount = 0;  // Repart à 0 pour repartir clean
   imageIndex = 0;
 
   // Vide le container des cartes pour recommencer à zéro
@@ -228,4 +259,7 @@ restartBtn.addEventListener("click", () => {
   // Cache le message de victoire et le bouton rejouer
   winMessage.style.display = "none";
   restartBtn.style.display = "none";
+
+  // Remélange les images pour la prochaine partie
+  shuffledImages = shuffleArray([...imagePaths]);
 });
