@@ -211,7 +211,7 @@ restartBtn.addEventListener("click", () => {
   firstCard = null;
   secondCard = null;
   flippedCount = 0;
-  pairCount = 0;
+  pairCount = 6;
   imageIndex = 0;
 
   // Vide le container des cartes pour recommencer à zéro
