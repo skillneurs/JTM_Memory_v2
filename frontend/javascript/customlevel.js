@@ -228,7 +228,7 @@ function checkForMatch() {
   if (img1 === img2) {
     // Si images identiques : paire trouvée
     flippedCount += 2; // Compte les cartes trouvées
-    setTimeout(() => {
+    
       firstCard.querySelector(".card-back").style.backgroundColor = "lightgreen";
       secondCard.querySelector(".card-back").style.backgroundColor = "lightgreen";
 
@@ -240,7 +240,7 @@ function checkForMatch() {
       // Reset les cartes sélectionnées après coloration
       firstCard = null;
       secondCard = null;
-    }, 1);
+   
   } else {
     // Sinon, mauvaise paire → bloque le plateau et retourne les cartes après 1s
     lockBoard = true;
