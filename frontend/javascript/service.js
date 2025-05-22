@@ -91,3 +91,7 @@ const link5 = document.querySelector(".gallery_item_2");
 link5.addEventListener("click", function () {
   window.location = "homeMOVIE.html";
 });
+const link2 = document.querySelector(".gallery_item_4");
+link2.addEventListener("click", function () {
+  window.location = "customlevel.html";
+});
