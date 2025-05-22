@@ -30,6 +30,7 @@ h1 {
     color: #ff0000;
     cursor: pointer;
     border-radius: 8px;
+    display: flex;
 }
 
 #increase-pairs {
@@ -37,6 +38,7 @@ h1 {
     color: #ff0000;
     cursor: pointer;
     border-radius: 8px;
+    display: flex;
 }
 
 #play-button {
