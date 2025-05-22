@@ -2,11 +2,10 @@ body {
     font-family: Arial, sans-serif;
     padding: 20px;
     text-align: center;
-    background-image: url(../img/panoramaSpacebg.webp);
+    background-image: url(../img/crossover.webp);
     background-position: center;
     background-size: cover;
     height: 100vh;
-
 }
 
 h1 {
@@ -56,6 +55,10 @@ h1 {
     perspective: 800px;
     cursor: pointer;
     position: relative;
+}
+.carte:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .card-inner {
