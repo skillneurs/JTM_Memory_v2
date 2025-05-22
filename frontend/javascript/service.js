@@ -83,3 +83,7 @@ const link3 = document.querySelector(".gallery_item_3");
 link3.addEventListener("click", function () {
     window.location = "homeLOL.html";
 });
+const link4 = document.querySelector(".gallery_item_5");
+link4.addEventListener("click", function () {
+    window.location = "homeSW.html";
+});
