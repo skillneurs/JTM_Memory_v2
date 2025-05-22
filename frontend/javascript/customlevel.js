@@ -31,13 +31,30 @@ document.body.appendChild(restartBtn);
 // Tableau contenant les chemins des images disponibles dans le dossier "img"
 const imagePaths = [
   "./img/planet.webp",
-  "./img_memo/jupiter.webp",
-  "./img_memo/mars.webp",
-  "./img_memo/mercure.webp",
-  "./img_memo/neptune.webp",
-  "./img_memo/saturne.webp",
-  "./img_memo/terre.webp",
-  "./img_memo/uranus.webp",
+  "./img_memo/imgPLANET/jupiter.webp",
+  "./img_memo/imgPLANET/mars.webp",
+  "./img_memo/imgPLANET/mercure.webp",
+  "./img_memo/imgPLANET/neptune.webp",
+  "./img_memo/imgPLANET/saturne.webp",
+  "./img_memo/imgPLANET/terre.webp",
+  "./img_memo/imgPLANET/uranus.webp",
+  "./img_memo/imgLOL/ash.webp",
+  "./img_memo/imgLOL/ahri.webp",
+  "./img_memo/imgLOL/azir.webp",
+  "./img_memo/imgLOL/caitlyn.webp",
+  "./img_memo/imgLOL/heimerdinger.webp",
+  "./img_memo/imgLOL/mordekaiser.webp",
+  "./img_memo/imgLOL/panthéon.webp",
+  "./img_memo/imgLOL/teemo.webp",
+  "./img_memo/imgMOVIE/lordofring.webp",
+  "./img_memo/imgMOVIE/piratec.webp",
+  "./img_memo/imgMOVIE/rogone.webp",
+  "./img_memo/imgMOVIE/sea.webp",
+  "./img_memo/imgMOVIE/smile.webp",
+  "./img_memo/imgMOVIE/spiderman.webp",
+  "./img_memo/imgMOVIE/terminator.webp",
+  "./img_memo/imgMOVIE/terrifier.webp",
+
   
 ];
 
