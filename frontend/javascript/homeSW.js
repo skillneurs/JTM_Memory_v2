@@ -61,7 +61,7 @@ cartes.forEach(carte => {
         });
         document.getElementById("combo").textContent = `Combo : ${combo}`;
 
-        if (cartestrouvee.length === 8){
+        if (cartestrouvee.length === 12){
           console.log("terminée");
           victoire.classList.remove("none");
         }

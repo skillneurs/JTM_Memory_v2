@@ -3,7 +3,7 @@ body {
     background-image: url(/frontend/img/starwarsbg2.webp);
     background-repeat: no-repeat;
     background-size: cover;
-    overflow: hidden;
+    
 }
 
 header {
@@ -157,6 +157,18 @@ header {
 
 .palpatine {
     width: 71%;
+}
+.drcombat {
+    width: 20%;
+}
+.c3po {
+    width: 80%;
+}
+.star {
+    width: 40%;
+}
+.bb8 {
+    width: 27%;
 }
 
 .sond {
