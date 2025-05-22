@@ -8,9 +8,15 @@ body {
  height: 100vh;
  
 }
-
+#pair-count{
+color: #ccc;
+}
 #pair-controls {
   margin-bottom: 20px;
+}
+#decrease-pairs{
+width: 50%;
+color: #ccc;    
 }
 
 .cartes_container {
