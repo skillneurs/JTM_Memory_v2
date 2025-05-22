@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/homeSW.css">
+    <link rel="stylesheet" href="./css/font.css">
+    <title>Memory</title>
+</head>
+
+<body>
+    <header>
+        <div class="info">
+            <div class="score">Score : 0</div>
+            <div id="combo">Combo : 0</div>
+        </div>
+        <a class="compte" href="/backend/log/score.php">
+            <span class="btn-compte">Carrière</span>
+            
+        </a>
+        <a class="home" href="/frontend/index.html">
+            <span class="btn-home">Home</span>
+            <img class="img-home" src="img/Home-removebg.png" alt="">
+        </a>
+    </header>
+    <div id="memory">
+        <div class="carte padding" data-valeur="1">
+            <img class="jaba none" src="./img_memo/imgSW/jaba.webp">
+        </div>
+        <div class="carte padding" data-valeur="1">
+            <img class="jaba none" src="./img_memo/imgSW/jaba.webp">
+        </div>
+        <div class="carte padding" data-valeur="2">
+
+            <img class="dv none" src="./img_memo/imgSW/dv.webp">
+        </div>
+        <div class="carte padding" data-valeur="2">
+            <img class="dv none" src="./img_memo/imgSW/dv.webp">
+        </div>
+        <div class="carte padding" data-valeur="3">
+            <img class="md none" src="./img_memo/imgSW/mdo.webp">
+        </div>
+        <div class="carte padding" data-valeur="3">
+            <img class="md none" src="./img_memo/imgSW/mdo.webp">
+        </div>
+        <div class="carte padding" data-valeur="4">
+            <img class="mk none" src="./img_memo/imgSW/mk.webp">
+        </div>
+        <div class="carte padding" data-valeur="4">
+            <img class="mk none" src="./img_memo/imgSW/mk.webp">
+        </div>
+        <div class="carte padding" data-valeur="5">
+            <img class="palpatine none" src="./img_memo/imgSW/palpatine.webp">
+        </div>
+        <div class="carte padding" data-valeur="5">
+            <img class="palpatine none" src="./img_memo/imgSW/palpatine.webp">
+        </div>
+        <div class="carte padding" data-valeur="6">
+            <img class="redtrooper none" src="./img_memo/imgSW/redtrooper.webp">
+        </div>
+        <div class="carte padding" data-valeur="6">
+            <img class="redtrooper none" src="./img_memo/imgSW/redtrooper.webp">
+        </div>
+        <div class="carte padding" data-valeur="7">
+            <img class="sond none" src="./img_memo/imgSW/sond.webp">
+        </div>
+        <div class="carte padding" data-valeur="7">
+            <img class="sond none" src="./img_memo/imgSW/sond.webp">
+        </div>
+        <div class="carte padding" data-valeur="8">
+            <img class="yoda none" src="./img_memo/imgSW/yoda.webp">
+        </div>
+        <div class="carte padding" data-valeur="8">
+            <img class="yoda none" src="./img_memo/imgSW/yoda.webp">
+        </div>
+    </div>
+    <div id="victoire" class="none popup">
+        <div class="style">
+            <h2>Bien jouer tu a gagnée</h2>
+            <div class="score" id="scoreV">Score : 0</div>
+            <button id="rejouer">Rejouer</button>
+        </div>
+    </div>
+    <script src="./javascript/homeSW.js"></script>
+</body>
+
+</html>
