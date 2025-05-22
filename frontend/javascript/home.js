@@ -29,7 +29,7 @@ let verrouillage = false;
 let cartestrouvee = [];
 
 cartes.forEach(carte => {
-  carte.addEventListener("click", () => { 
+  carte.addEventListener("click", () => {
     if (verrouillage || carte.classList.contains("trouvee") || carte.classList.contains("visible")) {
       return;
     }
@@ -37,7 +37,7 @@ cartes.forEach(carte => {
     carte.classList.add("visible");
     carte.classList.remove("padding");
     const img = carte.querySelector("img");
-    if(img){
+    if (img) {
       img.classList.remove("none");
       img.classList.add("rotate");
     }
@@ -46,7 +46,7 @@ cartes.forEach(carte => {
     if (cartesRetournees.length === 2) {
       verrouillage = true;
       const [carte1, carte2] = cartesRetournees;
-      
+
 
       if (carte1.dataset.valeur === carte2.dataset.valeur) {
         // Paire trouvée
@@ -54,17 +54,36 @@ cartes.forEach(carte => {
         carte1.classList.add("trouvee");
         carte2.classList.add("trouvee");
         cartestrouvee.push(1);
-        combo ++;
-        score +=50 * combo;
+        combo++;
+        score += 50 * combo;
         scoreElements.forEach(el => {
           el.textContent = `Score : ${score}`;
         });
         document.getElementById("combo").textContent = `Combo : ${combo}`;
 
-        if (cartestrouvee.length === 8){
+        if (cartestrouvee.length === 8) {
           console.log("terminée");
           victoire.classList.remove("none");
         }
+        const scoreFinal = score; 
+        
+        fetch("ajouter_score.php", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            score: scoreFinal
+          })
+        })
+          .then(response => response.text())
+          .then(data => {
+            console.log("✅ Score envoyé :", data);
+          })
+          .catch(error => {
+            console.error("❌ Erreur envoi score :", error);
+          });
+
 
         cartesRetournees = [];
         verrouillage = false;
@@ -74,7 +93,7 @@ cartes.forEach(carte => {
         setTimeout(() => {
           carte1.classList.remove("visible");
           carte2.classList.remove("visible");
-           carte1.classList.add("padding");
+          carte1.classList.add("padding");
           carte2.classList.add("padding");
 
           const img1 = carte1.querySelector("img");
@@ -82,9 +101,9 @@ cartes.forEach(carte => {
           if (img1) img1.classList.add("none");
           if (img2) img2.classList.add("none");
 
-          score -=20;
+          score -= 20;
           scoreElements.forEach(el => {
-              el.textContent = `Score : ${score}`;
+            el.textContent = `Score : ${score}`;
           });
           combo = 0;
           cartesRetournees = [];
