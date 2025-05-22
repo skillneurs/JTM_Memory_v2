@@ -51,7 +51,8 @@ session_start();
                             'identifiant' => $result['identifiant']
                         ];
                         // Redirection vers la page de score
-                        header("Location: score.php");  
+                        header("Location: .score.php");
+                        var_dump('oui');
                         exit();
 
                     } else {
