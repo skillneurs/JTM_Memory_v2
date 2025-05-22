@@ -1,6 +1,6 @@
 body {
     background-color: blanchedalmond;
-    background-image: url(/frontend/img/maplolbg.webp);
+    background-image: url(../img/maplolbg.webp);
     background-repeat: no-repeat;
     background-size: cover;
     overflow: hidden;

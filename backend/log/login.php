@@ -9,7 +9,7 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connexion</title>
-    <link rel="stylesheet" href="../log/log.css">
+    <link rel="stylesheet" href="../../frontend/css/log.css">
     <link rel="stylesheet" href="../../frontend/css/font.css">
 
 </head>
@@ -23,7 +23,7 @@ session_start();
                 <input type="password" name="mdp" placeholder="Mot de Passe" autocomplete="off">
                 <input type="submit" name="connecter" value="Se connecter" id="connecter">
                 <a href="../log/register.php">Vous navez pas de compte ? Créez en un!</a>
-                <a href="../../frontend/home.html" id="btn-redirection-accueil">Continuer sans compte</a>
+                <a href="../../frontend/index.html" id="btn-redirection-accueil">Continuer sans compte</a>
             </div>
         </form>
 
@@ -51,7 +51,7 @@ session_start();
                             'identifiant' => $result['identifiant']
                         ];
                         // Redirection vers la page de score
-                        header("Location: ../log/score.php");
+                        header("Location: ./score.php");
                         exit();
 
                     } else {
