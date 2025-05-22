@@ -1,0 +1,89 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    text-align: center;
+}
+
+#pair-controls {
+    margin-bottom: 20px;
+}
+
+.cartes_container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 80px;
+    justify-content: center;
+}
+
+.carte {
+    width: 100px;
+    height: 150px;
+    perspective: 800px;
+    cursor: pointer;
+    position: relative;
+}
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+.carte.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    padding: 2rem;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border: 2px solid #333;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card-front {
+    background: #ccc;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+}
+
+.card-back img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Animation de mélange */
+@keyframes shake {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(2deg);
+    }
+
+    50% {
+        transform: rotate(-2deg);
+    }
+
+    75% {
+        transform: rotate(2deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.shuffle-animation {
+    animation: shake 0.5s ease-in-out;
+}
