@@ -38,9 +38,7 @@ const imagePaths = [
   "./img_memo/saturne.webp",
   "./img_memo/terre.webp",
   "./img_memo/uranus.webp",
-  "./img_memo/venus.webp",
-  "./img_memo/terre.webp",
-  "./img_memo/terre.webp",
+  
 ];
 
 // Fonction Fisher-Yates pour mélanger un tableau
