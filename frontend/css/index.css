@@ -136,7 +136,7 @@ h2 {
     color: #255784;
 }
 
-.gallery_item_5:hover {
+.hard:hover {
     cursor: pointer;
     opacity: +1;
     background: rgb(255, 42, 0);
