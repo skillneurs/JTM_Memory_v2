@@ -240,7 +240,7 @@ function checkForMatch() {
       // Reset les cartes sélectionnées après coloration
       firstCard = null;
       secondCard = null;
-    }, 1000);
+    }, 1);
   } else {
     // Sinon, mauvaise paire → bloque le plateau et retourne les cartes après 1s
     lockBoard = true;
