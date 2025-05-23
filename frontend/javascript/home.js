@@ -64,10 +64,10 @@ cartes.forEach(carte => {
         if (cartestrouvee.length === 8) {
           console.log("terminée");
           victoire.classList.remove("none");
-        }
-        const scoreFinal = score; 
+
+          const scoreFinal = score; 
         
-        fetch("ajouter_score.php", {
+        fetch("../log/ajouter_score.php", {
           method: "POST",
           headers: {
             "Content-Type": "application/json"
@@ -83,7 +83,7 @@ cartes.forEach(carte => {
           .catch(error => {
             console.error("❌ Erreur envoi score :", error);
           });
-
+        }
 
         cartesRetournees = [];
         verrouillage = false;

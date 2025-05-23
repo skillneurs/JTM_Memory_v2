@@ -2,8 +2,11 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-// Inclure le fichier de connexion
-require_once "database.php";
+// Connexion à la base de données
+$pdo = new PDO("mysql:host=109.234.161.199;dbname=jonteomat2_memory", "jonteomat2_jonteomat2", "*56j3_j/CVNp", [
+    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+]);
+
 
 // Récupérer les données envoyées en JSON
 $donnees = json_decode(file_get_contents("php://input"), true);
@@ -18,7 +21,7 @@ if (isset($donnees["score"])) {
     $users_id = 1;
 
     // Préparer et exécuter l'insertion du score
-    $stmt = $pdo->prepare("INSERT INTO scores (utilisateur_id, score, date) VALUES (?, ?, NOW())");
+    $stmt = $pdo->prepare("INSERT INTO scores (users_id, score, date) VALUES (?, ?, NOW())");
     $stmt->execute([$users_id, $score]);
 
     echo "Score enregistré avec succès.";
