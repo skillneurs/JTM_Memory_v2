@@ -23,36 +23,70 @@ h1 {
     margin-bottom: 20px;
     align-items: center;
     gap: 1rem;
+    padding-top: 1rem;
     justify-content: center;
 }
 
 #decrease-pairs {
     width: 3%;
-    color: #ff0000;
+    color: #db3049;
     cursor: pointer;
     border-radius: 8px;
     display: flex;
+    background-color: #0ebb8a;
 }
-
+#decrease-pairs:hover{
+    background: rgb(0, 255, 157);
+    box-shadow:
+        0 0 20px rgb(70 227 182),
+        0 0 80px rgb(70 227 182),
+        0 0 160px rgb(70 227 182),
+        0 0 320px rgb(70 227 182);
+    color: #255784;
+}
 #increase-pairs {
     width: 3%;
-    color: #ff0000;
+    color: #db3049;
     cursor: pointer;
     border-radius: 8px;
     display: flex;
+    background-color: #0ebb8a;
+}
+#increase-pairs:hover{
+    background: rgb(0, 255, 157);
+    box-shadow:
+        0 0 20px rgb(70 227 182),
+        0 0 80px rgb(70 227 182),
+        0 0 160px rgb(70 227 182),
+        0 0 320px rgb(70 227 182);
+    color: #255784;
 }
 
 #play-button {
     padding: 1rem;
     cursor: pointer;
+    color: cyan;
+    background-color: rgb(14 187 138);
+    padding: 1rem 1.9rem;
+    text-decoration: none;
+    border-radius: 1rem;
 }
-
+#play-button:hover{
+    background: rgb(0, 255, 157);
+    box-shadow:
+        0 0 20px rgb(70 227 182),
+        0 0 80px rgb(70 227 182),
+        0 0 160px rgb(70 227 182),
+        0 0 320px rgb(70 227 182);
+    color: #255784;
+}
 
 .cartes_container {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
     justify-content: center;
+    padding-top: 1rem;
 }
 
 .carte {
@@ -91,7 +125,7 @@ h1 {
 }
 
 .card-front {
-    background: #ccc;
+    background: #bcdbb7;
 }
 
 .card-back {
@@ -107,7 +141,7 @@ h1 {
 .home {
     display: flex;
     color: cyan;
-    background-color: rgb(39, 84, 198);
+    background-color: rgb(14 187 138);
     padding: 1rem 1.9rem;
     text-decoration: none;
     border-radius: 1rem;
@@ -116,12 +150,12 @@ h1 {
     margin: auto;
 }
 .home:hover {
-    background: cyan;
+    background: rgb(0, 255, 157);
     box-shadow:
-        0 0 20px #239BFF,
-        0 0 80px #239BFF,
-        0 0 160px #239BFF,
-        0 0 320px #239BFF;
+        0 0 20px rgb(70 227 182),
+        0 0 80px rgb(70 227 182),
+        0 0 160px rgb(70 227 182),
+        0 0 320px rgb(70 227 182);
     color: #255784;
 }
 
@@ -164,6 +198,12 @@ h1 {
         display: block;
         max-width: 100%;
     }
+    #increase-pairs{
+        width: 10%;
+    }
+    #decrease-pairs{
+        width: 10%;
+    }
 }
 
 @media(min-width : 768px){
@@ -172,5 +212,11 @@ h1 {
     }
     .btn-home{
         display: flex;
+    }
+    #increase-pairs{
+        width: 3%;
+    }
+    #decrease-pairs{
+        width: 3%;
     }
 }
