@@ -3,7 +3,6 @@ const increaseBtn = document.getElementById("increase-pairs"); // Bouton "+"
 const decreaseBtn = document.getElementById("decrease-pairs"); // Bouton "-"
 const playBtn = document.getElementById("play-button");       // Bouton "Play"
 const pairCountSpan = document.getElementById("pair-count");   // Affichage du nombre de paires
-const btnpairs3 = document.getElementById("btnpair3");   // ajouter une paire de 3 
 const cartesContainer = document.querySelector(".cartes_container"); // Conteneur des cartes
 
 // Variables d'état du jeu
