@@ -81,7 +81,7 @@ h1 {
     display: flex;
     background-color: #0ebb8a;
 }
-#increase-pairs2 {
+#increase-pairs {
     width: 3%;
     color: #db3049;
     cursor: pointer;
@@ -90,15 +90,6 @@ h1 {
     background-color: #0ebb8a;
 }
 #increase-pairs:hover{
-    background: rgb(0, 255, 157);
-    box-shadow:
-        0 0 20px rgb(70 227 182),
-        0 0 80px rgb(70 227 182),
-        0 0 160px rgb(70 227 182),
-        0 0 320px rgb(70 227 182);
-    color: #255784;
-}
-#increase-pairs2:hover{
     background: rgb(0, 255, 157);
     box-shadow:
         0 0 20px rgb(70 227 182),

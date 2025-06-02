@@ -1,35 +1,20 @@
 // Récupération des éléments du DOM
-const increaseBtn = document.getElementById("increase-pairs"); // Bouton "+"
-const decreaseBtn = document.getElementById("decrease-pairs"); // Bouton "-"
-const playBtn = document.getElementById("play-button");       // Bouton "Play"
-const pairCountSpan = document.getElementById("pair-count");   // Affichage du nombre de paires
-const cartesContainer = document.querySelector(".cartes_container"); // Conteneur des cartes
+const increaseBtn = document.getElementById("increase-pairs");
+const decreaseBtn = document.getElementById("decrease-pairs");
+const playBtn = document.getElementById("play-button");
+const pairCountSpan = document.getElementById("pair-count");
+const cartesContainer = document.querySelector(".cartes_container");
+const increasePairSizeBtn = document.getElementById("increase-pair-size");
+const decreasePairSizeBtn = document.getElementById("decrease-pair-size");
+const pairSizeSpan = document.getElementById("pair-size");
 
-// Variables d'état du jeu
-let pairCount = 0;        // Nombre initial de paires affichées
-let imageIndex = 0;       // Index pour suivre quelle image est utilisée pour les paires
-let gameStarted = false;  // Booléen indiquant si le jeu a commencé (clic sur Play)
-let firstCard = null;     // Première carte cliquée dans une paire en cours
-let secondCard = null;    // Seconde carte cliquée dans une paire en cours
-let thirdCard = null;    //  3em  carte cliquée dans une paire en cours
-let lockBoard = false;    // Verrouille le plateau lors de l'animation (empêche clics intempestifs)
-let flippedCount = 0;     // Compte le nombre total de cartes retournées (trouvées)
+// Variables d’état
+let pairCount = 0;
+let pairSize = 2;
+let imageIndex = 0;
+let lockBoard = false;
+let gameStarted = false;
 
-// Création et ajout dans le DOM du message de victoire (caché par défaut)
-const winMessage = document.createElement("div");
-winMessage.id = "win-message";
-winMessage.textContent = "🎉 Bravo, tu as gagné !";
-winMessage.style.display = "none";  // Masqué au départ
-document.body.appendChild(winMessage);
-
-// Création et ajout dans le DOM du bouton "Rejouer" (caché au départ)
-const restartBtn = document.createElement("button");
-restartBtn.id = "restart-button";
-restartBtn.textContent = "Rejouer";
-restartBtn.style.display = "none";
-document.body.appendChild(restartBtn);
-
-// Tableau contenant les chemins des images disponibles dans le dossier "img"
 const imagePaths = [
   "./img/planet.webp",
   "./img_memo/imgPLANET/jupiter.webp",
@@ -41,254 +26,152 @@ const imagePaths = [
   "./img_memo/imgPLANET/uranus.webp",
   "./img_memo/imgLOL/ash.webp",
   "./img_memo/imgLOL/ahri.webp",
-  "./img_memo/imgLOL/azir.webp",
-  "./img_memo/imgLOL/caitlyn.webp",
-  "./img_memo/imgLOL/heimerdinger.webp",
-  "./img_memo/imgLOL/mordekaiser.webp",
-  "./img_memo/imgLOL/panthéon.webp",
-  "./img_memo/imgLOL/teemo.webp",
-  "./img_memo/imgMOVIE/lordofring.webp",
-  "./img_memo/imgMOVIE/piratec.webp",
-  "./img_memo/imgMOVIE/rogone.webp",
-  "./img_memo/imgMOVIE/sea.webp",
-  "./img_memo/imgMOVIE/smile.webp",
-  "./img_memo/imgMOVIE/spiderman.webp",
-  "./img_memo/imgMOVIE/terminator.webp",
-  "./img_memo/imgMOVIE/terrifier.webp",
-  "./img_memo/imgSW/bb8.webp",
-  "./img_memo/imgSW/c3po.webp",
-  "./img_memo/imgSW/droidecombat.webp",
-  "./img_memo/imgSW/dv.webp",
-  "./img_memo/imgSW/étoilenoire.webp",
-  "./img_memo/imgSW/jaba.webp",
-  "./img_memo/imgSW/mdo.webp",
-  "./img_memo/imgSW/mk.webp",
-  "./img_memo/imgSW/palpatine.webp",
-  "./img_memo/imgSW/redtrooper.webp",
-  "./img_memo/imgSW/sond.webp",
-  "./img_memo/imgSW/yoda.webp",
-
-   
-  
+  // Ajoute plus si nécessaire
 ];
 
-// Fonction Fisher-Yates pour mélanger un tableau
+let shuffledImages = shuffleArray([...imagePaths]);
+
 function shuffleArray(array) {
-  let currentIndex = array.length, randomIndex;
-
-  while (currentIndex !== 0) {
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex--;
-
-    [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
   }
   return array;
 }
 
-// Crée une copie mélangée des images au lancement
-let shuffledImages = shuffleArray([...imagePaths]);
-
-// Met à jour l'affichage du nombre de paires à l'écran
 function updatePairCountDisplay() {
-  pairCountSpan.textContent = `Nombre de paires : ${pairCount}`;
+  pairCountSpan.textContent = `Nombre de paires (${pairSize} cartes) : ${pairCount}`;
 }
 
-// Crée une carte HTML complète avec l'image passée en paramètre
+function updatePairSizeDisplay() {
+  pairSizeSpan.textContent = pairSize;
+}
+
 function createCardElement(imageSrc) {
   const card = document.createElement("div");
-  card.classList.add("carte"); // Classe CSS pour styliser la carte
+  card.classList.add("carte");
+  card.dataset.image = imageSrc; // Stocke l’image pour comparaison
 
   const cardInner = document.createElement("div");
-  cardInner.classList.add("card-inner"); // Conteneur interne (utile pour animation flip)
+  cardInner.classList.add("card-inner");
 
   const cardFront = document.createElement("div");
-  cardFront.classList.add("card-front"); // Face avant (visible au départ)
+  cardFront.classList.add("card-front");
 
   const cardBack = document.createElement("div");
-  cardBack.classList.add("card-back");  // Face arrière (contient l'image)
-  
-  // Création et insertion de l'image dans la face arrière
+  cardBack.classList.add("card-back");
+
   const img = document.createElement("img");
   img.src = imageSrc;
   img.alt = "carte";
   cardBack.appendChild(img);
 
-  // Assemblage des faces dans le container interne
   cardInner.appendChild(cardFront);
   cardInner.appendChild(cardBack);
   card.appendChild(cardInner);
 
-  // Écouteur de clic sur la carte
+  // Gestion du clic
   card.addEventListener("click", () => {
-    // Si le jeu n'a pas commencé, ou que le plateau est verrouillé,
-    // ou que la carte est déjà retournée, on ignore le clic
-    if (!gameStarted || lockBoard || card.classList.contains("flipped")) return;
+    if (!gameStarted || lockBoard || card.classList.contains("flipped") || card.classList.contains("validated")) return;
 
-    // Ajoute la classe "flipped" pour retourner la carte (CSS s'en charge)
     card.classList.add("flipped");
 
-    // Si aucune carte sélectionnée avant, stocke celle-ci comme "firstCard"
-    if (!firstCard) {
-      firstCard = card;
-    } else {
-      // Sinon, c'est la deuxième carte cliquée, on lance la vérification
-      secondCard = card;
-      checkForMatch();
+    // Vérifie l’état actuel
+    const flipped = Array.from(cartesContainer.querySelectorAll(".flipped:not(.validated)"));
+    const imagesFlipped = flipped.map(c => c.dataset.image);
+    const firstImage = imagesFlipped[0];
+    const allSame = imagesFlipped.every(img => img === firstImage);
+
+    // Vérifie si toutes les cartes de cette image sont retournées
+    const allSameImageCards = Array.from(cartesContainer.children).filter(c => c.dataset.image === firstImage);
+    const allFlippedForImage = allSameImageCards.every(c => c.classList.contains("flipped"));
+
+    if (allFlippedForImage) {
+      // Valide les cartes de cette image
+      allSameImageCards.forEach(c => {
+        c.classList.add("validated");
+        c.querySelector(".card-back").style.backgroundColor = "lightgreen";
+      });
+
+      // Vérifie victoire
+      const allCards = Array.from(cartesContainer.children);
+      const allValidated = allCards.every(c => c.classList.contains("validated"));
+      if (allValidated) {
+        setTimeout(() => alert("🎉 Bravo, tu as gagné !"), 300);
+      }
+    } else if (!allSame) {
+      // Il y a au moins une carte différente → retourne toutes les non validées
+      lockBoard = true;
+      setTimeout(() => {
+        flipped.forEach(c => c.classList.remove("flipped"));
+        lockBoard = false;
+      }, 1000);
     }
   });
 
-  return card; // Retourne l'élément DOM créé
+  return card;
 }
 
-// Ajoute une paire de cartes avec la prochaine image disponible au clic sur "+"
+// Gestion des boutons
 increaseBtn.addEventListener("click", () => {
-  // Si on a déjà utilisé toutes les images disponibles, on bloque
   if (imageIndex >= shuffledImages.length) {
     alert("Plus d’images disponibles.");
     return;
   }
-
-  pairCount++; // Incrémente le compteur de paires
+  pairCount++;
   updatePairCountDisplay();
-
-  // Récupère l'image courante et incrémente l'index
   const imageSrc = shuffledImages[imageIndex];
+  for (let i = 0; i < pairSize; i++) {
+    cartesContainer.appendChild(createCardElement(imageSrc));
+  }
   imageIndex++;
-
-  // Crée 2 cartes identiques (une paire) et les ajoute au container
-  cartesContainer.appendChild(createCardElement(imageSrc));
-  cartesContainer.appendChild(createCardElement(imageSrc));
 });
 
-// Supprime la dernière paire ajoutée au clic sur "-"
 decreaseBtn.addEventListener("click", () => {
   if (pairCount > 0) {
-    pairCount--; // Décrémente le compteur de paires
+    pairCount--;
     updatePairCountDisplay();
-
-    // Supprime 2 cartes (une paire) du container
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < pairSize; i++) {
       const lastCard = cartesContainer.lastElementChild;
       if (lastCard) cartesContainer.removeChild(lastCard);
     }
-
-    // Décrémente l'index d'image utilisé (pour réutiliser cette image)
     if (imageIndex > 0) imageIndex--;
   }
 });
 
-// Fonction pour mélanger les cartes dans le container (algorithme Fisher-Yates)
-function shuffleCards() {
-  const cards = Array.from(cartesContainer.children); // Récupère les cartes dans un tableau
+increasePairSizeBtn.addEventListener("click", () => {
+  pairSize++;
+  updatePairSizeDisplay();
+  updatePairCountDisplay();
+});
 
-  // Fisher-Yates shuffle classique
-  for (let i = cards.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [cards[i], cards[j]] = [cards[j], cards[i]];
+decreasePairSizeBtn.addEventListener("click", () => {
+  if (pairSize > 2) {
+    pairSize--;
+    updatePairSizeDisplay();
+    updatePairCountDisplay();
   }
+});
 
-  // Vide le container
-  cartesContainer.innerHTML = "";
-
-  // Réinsère les cartes dans l’ordre mélangé
-  cards.forEach(card => cartesContainer.appendChild(card));
-}
-
-
-// Au clic sur "Play"
 playBtn.addEventListener("click", () => {
-  // Vérifie qu'il y a au moins une paire avant de commencer
   if (cartesContainer.children.length === 0) {
     alert("Ajoute au moins une paire avant de jouer !");
     return;
   }
+  gameStarted = true;
+  shuffleCards();
+});
 
-  // Désactive les boutons pour empêcher modifications pendant le jeu
-  increaseBtn.disabled = true;
-  decreaseBtn.disabled = true;
-  playBtn.disabled = true;
-
-  // Ajoute une classe d'animation pour mélanger visuellement (optionnel)
+function shuffleCards() {
   const cards = Array.from(cartesContainer.children);
-  cards.forEach(card => card.classList.add("shuffle-animation"));
-
-  // Après 500ms (fin animation), on retire la classe et on mélange réellement
-  setTimeout(() => {
-    cards.forEach(card => card.classList.remove("shuffle-animation"));
-    shuffleCards(); // Mélange les cartes dans le DOM
-    gameStarted = true; // Le jeu peut commencer, clics sur cartes autorisés
-  }, 500);
-});
-
-// Vérifie si les deux cartes retournées forment une paire
-function checkForMatch() {
-  // Récupère les sources des images des deux cartes
-  const img1 = firstCard.querySelector("img").src;
-  const img2 = secondCard.querySelector("img").src;
-
-  if (img1 === img2) {
-    // Si images identiques : paire trouvée
-    flippedCount += 2; // Compte les cartes trouvées
-    
-      firstCard.querySelector(".card-back").style.backgroundColor = "lightgreen";
-      secondCard.querySelector(".card-back").style.backgroundColor = "lightgreen";
-
-      // Vérifie si toutes les cartes sont retournées après le délai
-      if (flippedCount === cartesContainer.children.length) {
-        showWinMessage();
-      }
-
-      // Reset les cartes sélectionnées après coloration
-      firstCard = null;
-      secondCard = null;
-   
-  } else {
-    // Sinon, mauvaise paire → bloque le plateau et retourne les cartes après 1s
-    lockBoard = true;
-    setTimeout(() => {
-      firstCard.classList.remove("flipped");
-      secondCard.classList.remove("flipped");
-
-      // Réinitialise les variables pour le prochain essai
-      firstCard = null;
-      secondCard = null;
-      lockBoard = false;
-    }, 1000);
+  for (let i = cards.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [cards[i], cards[j]] = [cards[j], cards[i]];
   }
-}
-
-// Affiche le message de victoire et le bouton "Rejouer"
-function showWinMessage() {
-  winMessage.style.display = "block";
-  restartBtn.style.display = "inline-block";
-}
-
-// Événement clic sur "Rejouer"
-restartBtn.addEventListener("click", () => {
-  // Réinitialise toutes les variables d'état
-  gameStarted = false;
-  lockBoard = false;
-  firstCard = null;
-  secondCard = null;
-  flippedCount = 0;
-  pairCount = 0;  // Repart à 0 pour repartir clean
-  imageIndex = 0;
-
-  // Vide le container des cartes pour recommencer à zéro
   cartesContainer.innerHTML = "";
+  cards.forEach(card => cartesContainer.appendChild(card));
+}
 
-  // Met à jour l'affichage du compteur de paires
-  updatePairCountDisplay();
-
-  // Réactive les boutons de contrôle
-  increaseBtn.disabled = false;
-  decreaseBtn.disabled = false;
-  playBtn.disabled = false;
-
-  // Cache le message de victoire et le bouton rejouer
-  winMessage.style.display = "none";
-  restartBtn.style.display = "none";
-
-  // Remélange les images pour la prochaine partie
-  shuffledImages = shuffleArray([...imagePaths]);
-});
+// Initialisation
+updatePairCountDisplay();
+updatePairSizeDisplay();
