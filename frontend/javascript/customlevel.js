@@ -3,6 +3,7 @@ const increaseBtn = document.getElementById("increase-pairs"); // Bouton "+"
 const decreaseBtn = document.getElementById("decrease-pairs"); // Bouton "-"
 const playBtn = document.getElementById("play-button");       // Bouton "Play"
 const pairCountSpan = document.getElementById("pair-count");   // Affichage du nombre de paires
+const btnpairs3 = document.getElementById("btnpair3");   // ajouter une paire de 3 
 const cartesContainer = document.querySelector(".cartes_container"); // Conteneur des cartes
 
 // Variables d'état du jeu
@@ -11,6 +12,7 @@ let imageIndex = 0;       // Index pour suivre quelle image est utilisée pour l
 let gameStarted = false;  // Booléen indiquant si le jeu a commencé (clic sur Play)
 let firstCard = null;     // Première carte cliquée dans une paire en cours
 let secondCard = null;    // Seconde carte cliquée dans une paire en cours
+let thirdCard = null;    //  3em  carte cliquée dans une paire en cours
 let lockBoard = false;    // Verrouille le plateau lors de l'animation (empêche clics intempestifs)
 let flippedCount = 0;     // Compte le nombre total de cartes retournées (trouvées)
 
