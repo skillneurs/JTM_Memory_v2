@@ -22,7 +22,7 @@ session_start();
                 <input type="text" name="identifiant" placeholder="Identifiant" autocomplete="off">
                 <input type="password" name="mdp" placeholder="Mot de Passe" autocomplete="off">
                 <input type="submit" name="connecter" value="Se connecter" id="connecter">
-                <a href="../log/register.php">Vous navez pas de compte ? Créez en un!</a>
+                <a href="../log/register.php">Vous n'avez pas de compte ? Créez en un!</a>
                 <a href="../../frontend/index.html" id="btn-redirection-accueil">Continuer sans compte</a>
             </div>
         </form>
