@@ -3,10 +3,13 @@ const increaseBtn = document.getElementById("increase-pairs");
 const decreaseBtn = document.getElementById("decrease-pairs");
 const playBtn = document.getElementById("play-button");
 const pairCountSpan = document.getElementById("pair-count");
+const pairCountSpan2 = document.getElementById("pair-count2");
 const cartesContainer = document.querySelector(".cartes_container");
 const increasePairSizeBtn = document.getElementById("increase-pair-size");
 const decreasePairSizeBtn = document.getElementById("decrease-pair-size");
 const pairSizeSpan = document.getElementById("pair-size");
+
+
 
 // Variables d’état
 let pairCount = 0;
@@ -65,11 +68,12 @@ function shuffleArray(array) {
 }
 
 function updatePairCountDisplay() {
-  pairCountSpan.textContent = `Nombre de paires (${pairSize} cartes) : ${pairCount}`;
+  pairCountSpan.textContent = `Ajouter une paire de : (${pairSize} cartes) `;
+  pairCountSpan2.textContent= `Nombre de paire total :  ${pairCount}`;
 }
 
 function updatePairSizeDisplay() {
-  pairSizeSpan.textContent = pairSize;
+  pairSizeSpan.textContent = `Personaliser la taile de la paire :  ${pairSize}`;
 }
 
 function createCardElement(imageSrc) {

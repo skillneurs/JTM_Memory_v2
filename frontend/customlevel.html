@@ -18,7 +18,7 @@
         <span class="btn-home">Home</span>
         <img class="img-home" src="img/Home-removebg.png" alt="">
     </a>
-    
+
     <div id="pair-controls">
         <button id="decrease-pairs"><svg class="svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                 stroke-width="1.5" stroke="currentColor">
@@ -26,23 +26,26 @@
             </svg>
 
         </button>
-        <span id="pair-count">Nombre de paires (2cartes) : 0</span>
+        <div id="pair_count_div">
+            <span id="pair-count"></span>
+            
+        </div>
+
         <button id="increase-pairs"><svg class="svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                 stroke-width="1.5" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
             </svg></button>
 
     </div>
-<div>
-  <button id="decrease-pair-size">-1</button>
-  <span id="pair-size">0</span>
-  <button id="increase-pair-size">+1</button>
-</div>
-
-
+    <div>
+        <button id="decrease-pair-size">-1</button>
+        <span id="pair-size">0</span>
+        <button id="increase-pair-size">+1</button>
+    </div>
+    
+    <span id="pair-count2"></span>
     <button id="play-button">Play</button>
     <section class="cartes_container"></section>
-
     <script src="./javascript/customlevel.js"></script>
 </body>
 
