@@ -63,7 +63,7 @@ cartes.forEach(carte => {
 
         if (cartestrouvee.length === 8) {
           console.log("terminée");
-          victoire.classList.remove("none");
+          
 
           const scoreFinal = score; 
         

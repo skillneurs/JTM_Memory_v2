@@ -8,7 +8,8 @@ const cartesContainer = document.querySelector(".cartes_container");
 const increasePairSizeBtn = document.getElementById("increase-pair-size");
 const decreasePairSizeBtn = document.getElementById("decrease-pair-size");
 const pairSizeSpan = document.getElementById("pair-size");
-
+const btnrejouer = document.getElementById("rejouer");
+const victoire = document.getElementById("victoire");
 
 
 // Variables d’état
@@ -126,7 +127,7 @@ function createCardElement(imageSrc) {
       const allCards = Array.from(cartesContainer.children);
       const allValidated = allCards.every(c => c.classList.contains("validated"));
       if (allValidated) {
-        setTimeout(() => alert("🎉 Bravo, tu as gagné !"), 300);
+        victoire.classList.remove("none");
       }
     } else if (!allSame) {
       // Il y a au moins une carte différente → retourne toutes les non validées
@@ -204,3 +205,10 @@ function shuffleCards() {
 // Initialisation
 updatePairCountDisplay();
 updatePairSizeDisplay();
+
+
+btnrejouer.addEventListener("click", () => {
+  window.location.reload()
+  score = 0;
+  combo = 0;
+})

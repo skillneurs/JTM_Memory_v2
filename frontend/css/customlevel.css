@@ -8,7 +8,59 @@ body {
     height: 100vh;
 
 }
-
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 98;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.style {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 80%;
+    width: 60%;
+    margin: auto;
+    background-color: rgb(32, 177, 22);
+    border-radius: 4px;
+    border: 3px solid rgb(0, 255, 170);
+    box-shadow: 0px 0px 15px cyan inset;
+    padding-bottom: 1rem;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+}
+#rejouer {
+    display: block;
+    color: rgb(0, 0, 0);
+    background-color: rgb(246, 246, 246);
+    text-decoration: none;
+    border-radius: 1rem;
+    padding-top: 5px;
+    padding: 1rem;
+}
+#scoreV{
+    padding-bottom: 12px;
+}
+.none {
+    display: none;
+}
+#rejouer:hover {
+    background: rgb(177, 181, 155);
+    box-shadow:
+        0 0 20px #239BFF,
+        0 0 80px #239BFF,
+        0 0 160px #239BFF,
+        0 0 320px #239BFF;
+    color: #255784;
+}
 h1 {
     color: white;
 }
